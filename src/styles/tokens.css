@@ -1,0 +1,80 @@
+/* ==============================================
+   Design System Tokens — Portfolio Léa Spadea
+   « Cabinet de curiosités »
+   ============================================== */
+
+:root {
+  /* --- Couleurs : Fonds --- */
+  --color-bg-deep: #0B1A14;
+  --color-bg-forest: #14251E;
+  --color-bg-surface: #1C3129;
+
+  /* --- Couleurs : Texte --- */
+  --color-text-primary: #E9E2D0;
+  --color-text-secondary: #B8AE9C;
+  --color-text-muted: #7A7264;
+
+  /* --- Couleurs : Accents --- */
+  --color-accent-brass: #B89460;
+  --color-accent-bordeaux: #6B2D3E;
+  --color-accent-bordeaux-hover: #7A3648;
+
+  /* --- Couleurs : Utilitaires --- */
+  --color-border-subtle: #2A4038;
+
+  /* --- Typographie --- */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* --- Échelle typographique (mobile-first) --- */
+  --text-hero: 2rem;
+  --text-h1: 1.75rem;
+  --text-h2: 1.25rem;
+  --text-h3: 1.25rem;
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-caption: 0.75rem;
+
+  /* --- Espacement (base 4px) --- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* --- Border radius --- */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  /* --- Gutter page --- */
+  --gutter: var(--space-4);
+
+  /* --- Max width contenu --- */
+  --max-width: 1200px;
+}
+
+/* Tablette (≥768px) */
+@media (min-width: 768px) {
+  :root {
+    --text-hero: 2.5rem;
+    --text-h1: 2rem;
+    --text-h2: 1.375rem;
+    --gutter: var(--space-8);
+  }
+}
+
+/* Desktop (≥1024px) */
+@media (min-width: 1024px) {
+  :root {
+    --text-hero: 3rem;
+    --text-h1: 2.25rem;
+    --text-h2: 1.5rem;
+    --gutter: clamp(2rem, 5vw, 4rem);
+  }
+}
