@@ -1,0 +1,57 @@
+<section class="hero">
+
+  <div class="container">
+    <p class="hero__eyebrow">Développeuse web</p>
+
+    <h1 class="hero__title">Léa Spadea</h1>
+
+    <p class="hero__subtitle">De la maquette au code, je crée des interfaces web accessibles et performantes.</p>
+    
+    <div class="hero__actions">
+      <a class="btn-primary" href="#projets">Projets</a>
+      <a class="btn-outline" href="#contact">Contact</a>
+    </div>
+    
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-block: var(--space-24);
+    text-align: center;
+  }
+
+  .hero__eyebrow {
+    font-size: var(--text-caption);
+    color: var(--color-accent-brass);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-4);
+  }
+
+  .hero__title {
+    font-family: var(--font-display);
+    font-size: var(--text-hero);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .hero__subtitle {
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin-inline: auto;
+    margin-bottom: var(--space-8);
+  }
+
+  .hero__actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  @media (min-width: 768px) {
+    .hero__actions  {
+      flex-wrap: nowrap;
+    }}
+</style>
