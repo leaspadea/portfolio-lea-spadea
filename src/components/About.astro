@@ -1,0 +1,105 @@
+<section id="a-propos" class="section reveal">
+  <div class="container">
+    <h2 class="section-title">À propos</h2>
+
+    <p class="about__bio">
+      Après plusieurs années dans la vente, ma curiosité pour ce qui se cache
+      derrière les sites web m'a poussée vers une reconversion. La diversité de
+      ce métier a confirmé mon choix : construire des interfaces accessibles,
+      optimiser le référencement, échanger avec un client pour trouver la
+      solution qui lui correspond.
+    </p>
+
+    <div class="about__grid">
+      <div class="about__skill-block">
+        <h3>Front-end</h3>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>responsive</li>
+          <li>accessibilité</li>
+        </ul>
+      </div>
+
+      <div class="about__skill-block">
+        <h3>Outils</h3>
+        <ul>
+          <li>Git</li>
+          <li>GitHub</li>
+          <li>VS Code</li>
+          <li>DevTools</li>
+          <li>Figma</li>
+          <li>Notion</li>
+        </ul>
+      </div>
+
+      <div class="about__skill-block">
+        <h3>Frameworks</h3>
+        <ul>
+          <li>Astro</li>
+          <li>React</li>
+          <li>Sass</li>
+        </ul>
+      </div>
+
+      <div class="about__skill-block">
+        <h3>Qualité</h3>
+        <ul>
+          <li>SEO</li>
+          <li>performance</li>
+          <li>WCAG</li>
+          <li>validation W3C</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about__bio {
+    color: var(--color-text-secondary);
+    max-width: 700px;
+    margin-bottom: var(--space-12);
+    line-height: 1.8;
+  }
+
+  .about__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .about__skill-block {
+    background-color: var(--color-bg-forest);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+  }
+
+  .about__skill-block h3 {
+    color: var(--color-accent-brass);
+    font-size: var(--text-h3);
+    margin-bottom: var(--space-4);
+  }
+
+  .about__skill-block li {
+    color: var(--color-text-secondary);
+    font-size: var(--text-small);
+    padding-block: var(--space-1);
+  }
+
+  /* Tablette */
+  @media (min-width: 768px) {
+    .about__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 1024px) {
+    .about__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>
