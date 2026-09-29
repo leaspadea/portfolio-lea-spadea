@@ -1,0 +1,67 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <a href="#" class="footer__logo" aria-label="Retour en haut de page">LS</a>
+
+    <p>© {year} Léa Spadea</p>
+
+    <nav class="footer__links" aria-label="Liens externes">
+      <a
+        href="https://github.com/leaspadea"
+        target="_blank"
+        rel="noopener noreferrer">GitHub</a
+      >
+      <a
+        href="https://www.linkedin.com/in/lea-spadea/"
+        target="_blank"
+        rel="noopener noreferrer">LinkedIn</a
+      >
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--color-border-subtle);
+    padding-block: var(--space-8);
+  }
+
+  .footer__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .footer__inner p {
+    color: var(--color-text-muted);
+    font-size: var(--text-small);
+  }
+
+  .footer__links {
+    display: flex;
+    gap: var(--space-6);
+  }
+
+  .footer__links a {
+    color: var(--color-text-secondary);
+    font-size: var(--text-small);
+    font-weight: 500;
+  }
+
+  .footer__links a:hover {
+    color: var(--color-accent-brass);
+  }
+
+  .footer__logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-accent-brass);
+  text-decoration: none;
+}
+</style>
