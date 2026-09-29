@@ -1,0 +1,77 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  siteUrl?: string;
+  repoUrl?: string;
+}
+
+const { title, description, image, tags, siteUrl, repoUrl } = Astro.props;
+---
+
+<article class="card reveal">
+  <img alt={title} src={image} loading="lazy" width="600" height="340">
+
+  <div class="card__content">
+    <h3>{title}</h3>
+    <p>{description}</p>
+
+    <div class="card__tags">
+      {tags.map(tag => <span class="tag">{tag}</span>)}
+    </div>
+
+    <div class="card__links">
+      {siteUrl && <a href={siteUrl} target="_blank" rel="noopener noreferrer">Voir le site</a>}
+      {repoUrl && <a href={repoUrl} target="_blank" rel="noopener noreferrer">Voir le code</a>}
+    </div>
+  </div>
+</article>
+
+<style>
+  .card {
+    background-color: var(--color-bg-forest);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .card__content {
+    padding: var(--space-6);
+  }
+
+  .card__content h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    margin-bottom: var(--space-2);
+  }
+
+  .card__content p {
+    color: var(--color-text-secondary);
+    font-size: var(--text-small);
+    margin-bottom: var(--space-4);
+  }
+
+  .card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .card__links {
+    display: flex;
+    gap: var(--space-4);
+  }
+
+  .card__links a {
+    color: var(--color-accent-brass);
+    font-size: var(--text-small);
+    font-weight: 500;
+  }
+
+  .card__links a:hover {
+    text-decoration: underline;
+  }
+</style>
