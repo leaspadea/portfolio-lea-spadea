@@ -1,12 +1,51 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import About from '../components/About.astro';
-import Contact from '../components/Contact.astro';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import About from "../components/About.astro";
+import Contact from "../components/Contact.astro";
 ---
-<Layout title="Léa Spadea — Développeuse web" description="Portfolio de Léa Spadea, développeuse web spécialisée en intégration et React.">
+
+<Layout
+	title="Léa Spadea — Développeuse web"
+	description="Portfolio de Léa Spadea, développeuse web spécialisée en intégration et React."
+>
 	<Hero />
-	<About />
-	<Contact />
+	<main id="main-content">
+		<section id="projets" class="section">
+			<div class="container">
+				<h2 class="section-title">Mes projets</h2>
+				<p class="section-subtitle">
+					Une sélection de projets réalisés pendant ma formation.
+				</p>
+
+				<div class="projects-grid">
+					<ProjectCard
+						title="L'Établi"
+						description="Site vitrine pour un salon de tatouage, conçu et développé de l'expression du besoin au déploiement."
+						image="/images/letabli.webp"
+						tags={["Astro", "CSS", "React"]}
+						repoUrl="https://github.com/leaspadea/L_etabli"
+					/>
+					<ProjectCard
+						title="Argent Bank"
+						description="Intégration front-end d'une application bancaire : authentification, gestion de profil et state management avec React et Redux."
+						image="/images/argent-bank.webp"
+						tags={["React", "Redux", "React Router", "Vite", "API"]}
+						repoUrl="https://github.com/leaspadea/argent-bank"
+					/>
+					<ProjectCard
+						title="Nina Carducci"
+						description="Optimisation SEO, performance & accessibilité d'un site de photographe"
+						image="/images/nina-carducci.webp"
+						tags={["HTML", "CSS", "SEO", "JavaScript", "Accessibilité"]}
+						siteUrl="https://leaspadea.github.io/nina-carducci/"
+						repoUrl="https://github.com/leaspadea/nina-carducci"
+					/>
+				</div>
+			</div>
+		</section>
+		<About />
+		<Contact />
+	</main>
 </Layout>
