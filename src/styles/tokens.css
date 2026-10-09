@@ -8,14 +8,18 @@
   --color-bg-deep: #0B1A14;
   --color-bg-forest: #14251E;
   --color-bg-surface: #1C3129;
+  --color-bg-paper: #EDE4CF;
+  --color-bg-paper-light: #F6F0E1;
 
   /* --- Couleurs : Texte --- */
   --color-text-primary: #E9E2D0;
   --color-text-secondary: #B8AE9C;
   --color-text-muted: #7A7264;
+  --color-text-ink: #14251E;
 
   /* --- Couleurs : Accents --- */
   --color-accent-brass: #B89460;
+  --color-accent-brass-dark: #7A5A2E;
   --color-accent-bordeaux: #6B2D3E;
   --color-accent-bordeaux-hover: #7A3648;
 
@@ -23,11 +27,12 @@
   --color-border-subtle: #2A4038;
 
   /* --- Typographie --- */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Karla', system-ui, sans-serif;
+  --font-label: 'Courier Prime', 'Courier New', monospace;
 
   /* --- Échelle typographique (mobile-first) --- */
-  --text-hero: 2rem;
+  --text-hero: clamp(3.25rem, 8vw, 6.5rem);
   --text-h1: 1.75rem;
   --text-h2: 1.25rem;
   --text-h3: 1.25rem;
@@ -62,7 +67,6 @@
 /* Tablette (≥768px) */
 @media (min-width: 768px) {
   :root {
-    --text-hero: 2.5rem;
     --text-h1: 2rem;
     --text-h2: 1.375rem;
     --gutter: var(--space-8);
@@ -72,7 +76,6 @@
 /* Desktop (≥1024px) */
 @media (min-width: 1024px) {
   :root {
-    --text-hero: 3rem;
     --text-h1: 2.25rem;
     --text-h2: 1.5rem;
     --gutter: clamp(2rem, 5vw, 4rem);
