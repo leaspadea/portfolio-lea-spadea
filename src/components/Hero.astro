@@ -1,57 +1,138 @@
 <section class="hero">
-
-  <div class="container">
-    <p class="hero__eyebrow">Développeuse web</p>
-
-    <h1 class="hero__title">Léa Spadea</h1>
-
-    <p class="hero__subtitle">De la maquette au code, je crée des interfaces web accessibles et performantes.</p>
-    
-    <div class="hero__actions">
-      <a class="btn-primary" href="#projets">Projets</a>
-      <a class="btn-outline" href="#contact">Contact</a>
+  <div class="container hero__inner">
+    <!-- Colonne texte -->
+    <div class="hero__text">
+      <p class="hero__eyebrow">
+        Développeuse web · Cabinet de curiosités numériques
+      </p>
+      <h1 class="hero__title">Léa Spadea</h1>
+      <p class="hero__subtitle">
+        De la maquette au code, je crée des interfaces web accessibles et
+        performantes, avec le soin d'un objet fait main.
+      </p>
+      <div class="hero__actions">
+        <a class="btn-primary" href="#collection">Voir la collection</a>
+        <a class="btn-outline" href="#correspondance">M'écrire une lettre</a>
+      </div>
     </div>
-    
+
+    <!-- Médaillon portrait -->
+    <figure class="hero__medallion">
+      <div class="hero__portrait-frame">
+        <img
+          src="/images/portrait.webp"
+          alt="Portrait de Léa Spadea"
+          width="520"
+          height="660"
+        />
+      </div>
+      <figcaption class="hero__caption">Spécimen · 2026</figcaption>
+    </figure>
   </div>
 </section>
 
 <style>
   .hero {
     padding-block: var(--space-24);
-    text-align: center;
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(233, 226, 208, 0.028) 0 2px,
+      transparent 2px 30px
+    );
+  }
+
+  .hero__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: var(--space-12);
+  }
+
+  .hero__text {
+    flex: 1 1 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
 
   .hero__eyebrow {
-    font-size: var(--text-caption);
+    font-size: 1rem;
     color: var(--color-accent-brass);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.16em;
     margin-bottom: var(--space-4);
+    font-family: var(--font-label);
   }
 
   .hero__title {
     font-family: var(--font-display);
     font-size: var(--text-hero);
     color: var(--color-text-primary);
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-6);
+    font-style: italic;
+    line-height: 0.95;
   }
 
   .hero__subtitle {
     color: var(--color-text-secondary);
+    font-size: 1.4rem;
     max-width: 600px;
-    margin-inline: auto;
     margin-bottom: var(--space-8);
   }
 
   .hero__actions {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: var(--space-4);
     flex-wrap: wrap;
   }
+  .hero__portrait-frame {
+    width: 314px;
+    height: 402px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1.5px solid var(--color-accent-brass);
+    outline: 3px solid var(--color-accent-brass);
+    outline-offset: 15px;
+  }
+
+  .hero__portrait-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .hero__caption {
+    border: 1px solid var(--color-accent-brass);
+    background-color: var(--color-bg-deep);
+    font-family: var(--font-label);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    padding: var(--space-1) var(--space-4);
+    margin-top: var(--space-8);
+    width: fit-content;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .hero__caption::before,
+  .hero__caption::after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--color-accent-brass);
+    flex-shrink: 0;
+  }
 
   @media (min-width: 768px) {
-    .hero__actions  {
+    .hero__actions {
       flex-wrap: nowrap;
-    }}
+    }
+  }
 </style>
