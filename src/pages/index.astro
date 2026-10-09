@@ -12,40 +12,63 @@ import Contact from "../components/Contact.astro";
 >
 	<Hero />
 	<main id="main-content">
-		<section id="projets" class="section">
+		<section id="collection" class="section">
 			<div class="container">
-				<h2 class="section-title">Mes projets</h2>
+				
+				<div class="divider" aria-hidden="true">
+					<svg
+						width="64"
+						height="16"
+						viewBox="0 0 64 16"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="1.2"
+					>
+						<circle cx="6" cy="8" r="2"></circle>
+						<path d="M20 8 L32 2 L44 8 L32 14 Z"></path>
+						<circle cx="58" cy="8" r="2"></circle>
+					</svg>
+				</div>
+
+				<p class="section-eyebrow">Inventaire</p>
+				<h2 class="section-title">La <em>collection</em></h2>
 				<p class="section-subtitle">
-					Une sélection de projets réalisés pendant ma formation.
+					Une sélection de projets réalisées pendant ma formation, chacun avec
+					son numéro d'inventaire.
 				</p>
 
-				<div class="projects-grid">
-					<ProjectCard
+				<ProjectCard
+						featured={true}
+						number={1}
 						title="L'Établi"
 						description="Site vitrine pour un salon de tatouage, conçu et développé de l'expression du besoin au déploiement."
 						image="/images/letabli.webp"
 						tags={["Astro", "CSS", "React"]}
 						repoUrl="https://github.com/leaspadea/L_etabli"
 					/>
-					<ProjectCard
-						title="Argent Bank"
-						description="Intégration front-end d'une application bancaire : authentification, gestion de profil et state management avec React et Redux."
-						image="/images/argent-bank.webp"
-						tags={["React", "Redux", "React Router", "Vite", "API"]}
-						repoUrl="https://github.com/leaspadea/argent-bank"
-					/>
-					<ProjectCard
-						title="Nina Carducci"
-						description="Optimisation SEO, performance & accessibilité d'un site de photographe"
-						image="/images/nina-carducci.webp"
-						tags={["HTML", "CSS", "SEO", "JavaScript", "Accessibilité"]}
-						siteUrl="https://leaspadea.github.io/nina-carducci/"
-						repoUrl="https://github.com/leaspadea/nina-carducci"
-					/>
+
+					<div class="projects-grid">
+						<ProjectCard
+							number={2}
+							title="Argent Bank"
+							description="Intégration front-end d'une application bancaire : authentification, gestion de profil et state management avec React et Redux."
+							image="/images/argent-bank.webp"
+							tags={["React", "Redux", "React Router", "Vite", "API"]}
+							repoUrl="https://github.com/leaspadea/argent-bank"
+						/>
+						<ProjectCard
+							number={3}
+							title="Nina Carducci"
+							description="Optimisation SEO, performance & accessibilité d'un site de photographe"
+							image="/images/nina-carducci.webp"
+							tags={["HTML", "CSS", "SEO", "JavaScript", "Accessibilité"]}
+							siteUrl="https://leaspadea.github.io/nina-carducci/"
+							repoUrl="https://github.com/leaspadea/nina-carducci"
+						/>
+					</div>
 				</div>
-			</div>
-		</section>
-		<About />
-		<Contact />
+			</section>
+			<About />
+			<Contact />
 	</main>
 </Layout>
