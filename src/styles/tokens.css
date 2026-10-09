@@ -36,9 +36,9 @@
   --text-h1: 1.75rem;
   --text-h2: 1.25rem;
   --text-h3: 1.25rem;
-  --text-body: 1rem;
-  --text-small: 0.875rem;
-  --text-caption: 0.75rem;
+  --text-body: 1.4rem;
+  --text-small: 1rem;
+  --text-caption: 0.9rem;
 
   /* --- Espacement (base 4px) --- */
   --space-1: 0.25rem;
