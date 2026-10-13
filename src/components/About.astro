@@ -1,105 +1,303 @@
-<section id="a-propos" class="section reveal">
+<section id="a-propos" class="section__letter">
   <div class="container">
-    <h2 class="section-title">À propos</h2>
-
-    <p class="about__bio">
-      Après plusieurs années dans la vente, ma curiosité pour ce qui se cache
-      derrière les sites web m'a poussée vers une reconversion. La diversité de
-      ce métier a confirmé mon choix : construire des interfaces accessibles,
-      optimiser le référencement, échanger avec un client pour trouver la
-      solution qui lui correspond.
-    </p>
-
-    <div class="about__grid">
-      <div class="about__skill-block">
-        <h3>Front-end</h3>
-        <ul>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>responsive</li>
-          <li>accessibilité</li>
-        </ul>
+    <div class="bio__catalogue">
+      <div class="bio__hero">
+        <h2 class="section-title">À <em>propos</em></h2>
+        <span class="bio__catalogue-number">FICHE N° 12</span>
       </div>
+      <p class="about__bio">
+        Après plusieurs années dans la vente, ma curiosité pour ce qui se cache
+        derrière les sites web m'a poussée vers une reconversion. La diversité
+        de ce métier a confirmé mon choix : construire des interfaces
+        accessibles, optimiser le référencement, échanger avec un client pour
+        trouver la solution qui lui correspond.
+      </p>
+    </div>
 
-      <div class="about__skill-block">
-        <h3>Outils</h3>
-        <ul>
-          <li>Git</li>
-          <li>GitHub</li>
-          <li>VS Code</li>
-          <li>DevTools</li>
-          <li>Figma</li>
-          <li>Notion</li>
-        </ul>
-      </div>
+    <div class="drawer">
+      <p class="drawer__label">Le meuble à tiroirs</p>
+      <div class="about__grid">
+        <div class="about__skill-block">
+          <h3>Front-end</h3>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>responsive</li>
+            <li>accessibilité</li>
+          </ul>
+          <div class="handle" aria-hidden="true"></div>
+        </div>
 
-      <div class="about__skill-block">
-        <h3>Frameworks</h3>
-        <ul>
-          <li>Astro</li>
-          <li>React</li>
-          <li>Sass</li>
-        </ul>
-      </div>
+        <div class="about__skill-block">
+          <h3>Outils</h3>
+          <ul>
+            <li>Git</li>
+            <li>GitHub</li>
+            <li>VS Code</li>
+            <li>DevTools</li>
+            <li>Figma</li>
+            <li>Notion</li>
+          </ul>
+          <div class="handle" aria-hidden="true"></div>
+        </div>
 
-      <div class="about__skill-block">
-        <h3>Qualité</h3>
-        <ul>
-          <li>SEO</li>
-          <li>performance</li>
-          <li>WCAG</li>
-          <li>validation W3C</li>
-        </ul>
+        <div class="about__skill-block">
+          <h3>Frameworks</h3>
+          <ul>
+            <li>Astro</li>
+            <li>React</li>
+            <li>Sass</li>
+          </ul>
+          <div class="handle" aria-hidden="true"></div>
+        </div>
+
+        <div class="about__skill-block">
+          <h3>Qualité</h3>
+          <ul>
+            <li>SEO</li>
+            <li>performance</li>
+            <li>WCAG</li>
+            <li>validation W3C</li>
+          </ul>
+          <div class="handle" aria-hidden="true"></div>
+        </div>
       </div>
     </div>
   </div>
+
+  <style>
+    /* ===== Section ===== */
+
+    .section__letter {
+      background-color: var(--color-bg-paper);
+      color: var(--color-text-ink);
+      padding-block: var(--space-16);
+      border-top: 8px double var(--color-accent-brass-dark);
+      border-bottom: 8px double var(--color-accent-brass-dark);
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-12);
+    }
+
+    /* ===== Fiche de catalogue ===== */
+
+    /* Tous les espacements verticaux sont des multiples de 2rem
+       pour que le texte reste aligné sur les lignes du papier */
+    .bio__catalogue {
+      flex: 1 1 380px;
+      align-self: flex-start;
+      padding: 2rem;
+      line-height: 2rem;
+      background-color: var(--color-bg-paper-light);
+      background-image: repeating-linear-gradient(
+        0deg,
+        transparent 0 31px,
+        rgba(122, 90, 46, 0.18) 31px 32px
+      );
+      border: 2px solid #c9bb9b;
+      box-shadow: 6px 6px 0 #d8cbad;
+    }
+
+    .bio__hero {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-top: 2rem;
+      padding-bottom: calc(2rem - 3px);
+      border-bottom: 3px solid var(--color-accent-bordeaux);
+    }
+
+    .bio__catalogue .section-title {
+      line-height: 4rem;
+      margin-bottom: 0;
+    }
+
+    .bio__catalogue-number {
+      font-family: var(--font-label);
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+      line-height: 2rem;
+      color: var(--color-accent-brass-dark);
+    }
+
+    .about__bio {
+      max-width: 700px;
+      margin-top: 2rem;
+      margin-bottom: 0;
+      color: var(--color-text-ink);
+    }
+
+    /* ===== Meuble ===== */
+
+    .drawer {
+      flex: 1 1 380px;
+    }
+
+    .drawer__label {
+      margin-bottom: var(--space-3);
+      font-family: var(--font-label);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--color-accent-brass-dark);
+    }
+
+    .about__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background:
+        linear-gradient(rgba(20, 37, 30, 0.9), rgba(20, 37, 30, 0.9)),
+        url("/images/wood-pattern.jpg") repeat;
+      background-size: auto, 200px;
+      border: 1px solid var(--color-accent-brass-dark);
+    }
+
+    /* ===== Tiroir ===== */
+
+    .about__skill-block {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: 2.5rem 2rem;
+      background:
+        linear-gradient(rgba(28, 49, 41, 0.93), rgba(28, 49, 41, 0.93)),
+        url("/images/wood-pattern.jpg") repeat;
+      background-size: auto, 200px;
+      box-shadow:
+        inset 0 0 0 5px var(--color-bg-forest),
+        inset 0 0 0 6px var(--color-border-subtle);
+    }
+
+    /* Moulure : relief éclairé en haut à gauche, panneau central en creux */
+    .about__skill-block::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 2px solid;
+      border-color:
+        rgba(233, 226, 208, 0.15)
+        rgba(0, 0, 0, 0.55)
+        rgba(0, 0, 0, 0.55)
+        rgba(233, 226, 208, 0.15);
+      box-shadow:
+        inset 2px 2px 0 rgba(0, 0, 0, 0.45),
+        inset -2px -2px 0 rgba(233, 226, 208, 0.1);
+      pointer-events: none;
+    }
+
+    /* Intérieur du tiroir, visible à l'ouverture (trapèze = perspective) */
+    .about__skill-block::after {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      right: 0;
+      height: 14px;
+      background: linear-gradient(to bottom, #000, rgba(0, 0, 0, 0.75));
+      clip-path: polygon(5% 0, 95% 0, 100% 100%, 0 100%);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      pointer-events: none;
+    }
+
+    /* Plaque laiton */
+    .about__skill-block h3 {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 12px;
+      font-family: var(--font-label);
+      font-size: 0.85em;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--color-text-primary);
+      background-color: var(--color-bg-deep);
+      border: 1px solid var(--color-accent-brass);
+    }
+
+    /* Vis de la plaque */
+    .about__skill-block h3::before,
+    .about__skill-block h3::after {
+      content: "";
+      flex-shrink: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: var(--color-accent-brass);
+    }
+
+    .about__skill-block ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .about__skill-block li {
+      padding-block: var(--space-1);
+      font-size: var(--text-small);
+      text-align: center;
+      color: var(--color-text-secondary);
+    }
+
+    .about__skill-block li + li::before {
+      content: "·";
+      margin-inline: var(--space-2);
+    }
+
+    .handle {
+      width: 18px;
+      height: 18px;
+      margin-top: auto;
+      margin-inline: auto;
+      border-radius: 50%;
+      background: var(--color-accent-brass);
+      box-shadow: inset 0 0 0 3px #8c6e43;
+    }
+
+    /* ===== Ouverture du tiroir au survol ===== */
+
+    @media (hover: hover) {
+      .about__skill-block:hover {
+        z-index: 1;
+        transform: scale(1.03);
+        box-shadow:
+          inset 0 0 0 5px var(--color-bg-forest),
+          inset 0 0 0 6px var(--color-border-subtle),
+          0 12px 18px rgba(0, 0, 0, 0.6);
+      }
+
+      .about__skill-block:hover::after {
+        transform: scaleY(1);
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .about__skill-block {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .about__skill-block::after {
+        transition: transform 0.3s ease;
+      }
+    }
+
+    /* ===== Responsive ===== */
+
+    /* Tablette */
+    @media (min-width: 768px) {
+      .about__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
 </section>
-
-<style>
-  .about__bio {
-    color: var(--color-text-secondary);
-    max-width: 700px;
-    margin-bottom: var(--space-12);
-    line-height: 1.8;
-  }
-
-  .about__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-  }
-
-  .about__skill-block {
-    background-color: var(--color-bg-forest);
-    border: 1px solid var(--color-border-subtle);
-    border-radius: var(--radius-lg);
-    padding: var(--space-6);
-  }
-
-  .about__skill-block h3 {
-    color: var(--color-accent-brass);
-    font-size: var(--text-h3);
-    margin-bottom: var(--space-4);
-  }
-
-  .about__skill-block li {
-    color: var(--color-text-secondary);
-    font-size: var(--text-small);
-    padding-block: var(--space-1);
-  }
-
-  /* Tablette */
-  @media (min-width: 768px) {
-    .about__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  /* Desktop */
-  @media (min-width: 1024px) {
-    .about__grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-</style>
