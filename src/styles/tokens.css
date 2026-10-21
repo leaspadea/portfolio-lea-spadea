@@ -62,6 +62,9 @@
 
   /* --- Max width contenu --- */
   --max-width: 1400px;
+
+  /* --- Header --- */
+  --header-height: 8rem;
 }
 
 /* Tablette (≥768px) */
