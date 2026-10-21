@@ -3,7 +3,9 @@
     <!-- Colonne texte -->
     <div class="hero__text">
       <p class="hero__eyebrow">
-        Développeuse web · Cabinet de curiosités numériques
+        <span class="hero__eyebrow-line">Développeuse web</span>
+        <span class="hero__eyebrow-sep" aria-hidden="true"> · </span>
+        <span class="hero__eyebrow-line">Cabinet de curiosités numériques</span>
       </p>
       <h1 class="hero__title">Léa Spadea</h1>
       <p class="hero__subtitle">
@@ -18,22 +20,59 @@
 
     <!-- Médaillon portrait -->
     <figure class="hero__medallion">
-      <div class="hero__portrait-frame">
-        <img
-          src="/images/portrait.webp"
-          alt="Portrait de Léa Spadea"
-          width="520"
-          height="660"
-        />
+      <div class="hero__swing">
+        <svg
+          class="hero__nail"
+          width="120"
+          height="64"
+          viewBox="0 0 120 64"
+          aria-hidden="true"
+        >
+          <line
+            x1="60"
+            y1="4"
+            x2="10"
+            y2="58"
+            stroke="#B89460"
+            stroke-width="1.5"></line>
+          <line
+            x1="60"
+            y1="4"
+            x2="110"
+            y2="58"
+            stroke="#B89460"
+            stroke-width="1.5"></line>
+          <circle cx="60" cy="4" r="4" fill="#B89460"></circle>
+          <circle cx="60" cy="4" r="1.5" fill="#0B1A14"></circle>
+        </svg>
+        <div class="hero__portrait-frame">
+          <img
+            src="/images/portrait.webp"
+            alt="Portrait de Léa Spadea"
+            width="520"
+            height="660"
+          />
+        </div>
       </div>
       <figcaption class="hero__caption">Spécimen · 2026</figcaption>
     </figure>
   </div>
+
+  <a class="hero__scroll" href="#collection">
+    Ouvrir la collection
+    <span aria-hidden="true">↓</span>
+  </a>
 </section>
 
 <style>
   .hero {
-    padding-block: var(--space-24);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    /* Hauteur de l'écran visible, moins le header et sa bordure de 1px */
+    min-height: calc(100svh - var(--header-height) - 1px);
+    padding-block: var(--space-16);
     background-image: repeating-linear-gradient(
       90deg,
       rgba(233, 226, 208, 0.028) 0 2px,
@@ -43,13 +82,12 @@
 
   .hero__inner {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column-reverse;
     align-items: stretch;
     gap: var(--space-12);
   }
 
   .hero__text {
-    flex: 1 1 480px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -64,6 +102,13 @@
     font-family: var(--font-label);
   }
 
+  .hero__eyebrow-line {
+    display: block;
+  }
+  .hero__eyebrow-sep {
+    display: none;
+  }
+
   .hero__title {
     font-family: var(--font-display);
     font-size: var(--text-hero);
@@ -76,24 +121,44 @@
   .hero__subtitle {
     color: var(--color-text-secondary);
     font-size: 1.4rem;
-    max-width: 600px;
+    max-width: 650px;
     margin-bottom: var(--space-8);
   }
 
   .hero__actions {
     display: flex;
-    justify-content: flex-start;
     gap: var(--space-4);
     flex-wrap: wrap;
+    flex-direction: column;
   }
+
+  .hero__actions a {
+    justify-content: center;
+  }
+
+  .hero__medallion {
+    align-self: center;
+  }
+
+  .hero__nail {
+    width: 76px;
+    height: auto;
+  }
+
+  .hero__swing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .hero__portrait-frame {
-    width: 314px;
-    height: 402px;
+    width: 200px;
+    height: 256px;
     border-radius: 50%;
     overflow: hidden;
-    border: 1.5px solid var(--color-accent-brass);
-    outline: 3px solid var(--color-accent-brass);
-    outline-offset: 15px;
+    border: 3px solid var(--color-accent-brass);
+    outline: 2px solid var(--color-accent-brass);
+    outline-offset: 10px;
   }
 
   .hero__portrait-frame img {
@@ -130,9 +195,61 @@
     flex-shrink: 0;
   }
 
+  /* Masqué en mobile : le contenu dépasse déjà l'écran et il recouvrirait les boutons */
+  .hero__scroll {
+    display: none;
+    position: absolute;
+    bottom: var(--space-4);
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 44px;
+    font-family: var(--font-label);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--color-accent-brass);
+    text-decoration: none;
+  }
+
   @media (min-width: 768px) {
     .hero__actions {
       flex-wrap: nowrap;
+      flex-direction: row;
+    }
+
+    .hero__portrait-frame {
+      width: 314px;
+      height: 402px;
+      outline-offset: 15px;
+    }
+
+    .hero__nail {
+      width: 120px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero__inner {
+      flex-direction: row;
+    }
+
+    .hero__text {
+      flex: 1 1 480px;
+    }
+
+    .hero__scroll {
+      display: inline-flex;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .hero__eyebrow-line {
+      display: inline;
+    }
+    .hero__eyebrow-sep {
+      display: inline;
     }
   }
 </style>
