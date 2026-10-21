@@ -24,3 +24,6 @@ pnpm-debug.log*
 .idea/
 
 CLAUDE.md
+
+# documents de travail (charte, specs d'animation)
+docs/
