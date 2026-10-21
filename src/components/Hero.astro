@@ -1,4 +1,55 @@
 <section class="hero">
+  <div class="hero__vitrine" aria-hidden="true">
+    <svg
+      class="hero__corner hero__corner--tl"
+      viewBox="0 0 56 56"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.2"
+    >
+      <path d="M2 50 V2 H50"></path>
+      <path d="M12 36 V12 H36"></path>
+      <circle cx="12" cy="12" r="2.5" fill="currentColor"></circle>
+      <path d="M20 20 L26 26"></path>
+    </svg>
+    <svg
+      class="hero__corner hero__corner--tr"
+      viewBox="0 0 56 56"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.2"
+    >
+      <path d="M2 50 V2 H50"></path>
+      <path d="M12 36 V12 H36"></path>
+      <circle cx="12" cy="12" r="2.5" fill="currentColor"></circle>
+      <path d="M20 20 L26 26"></path>
+    </svg>
+    <svg
+      class="hero__corner hero__corner--bl"
+      viewBox="0 0 56 56"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.2"
+    >
+      <path d="M2 50 V2 H50"></path>
+      <path d="M12 36 V12 H36"></path>
+      <circle cx="12" cy="12" r="2.5" fill="currentColor"></circle>
+      <path d="M20 20 L26 26"></path>
+    </svg>
+    <svg
+      class="hero__corner hero__corner--br"
+      viewBox="0 0 56 56"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.2"
+    >
+      <path d="M2 50 V2 H50"></path>
+      <path d="M12 36 V12 H36"></path>
+      <circle cx="12" cy="12" r="2.5" fill="currentColor"></circle>
+      <path d="M20 20 L26 26"></path>
+    </svg>
+  </div>
+
   <div class="container hero__inner">
     <!-- Colonne texte -->
     <div class="hero__text">
@@ -79,6 +130,67 @@
       transparent 2px 30px
     );
   }
+
+  /* ===== Vitrine (décor) ===== */
+
+  .hero__vitrine {
+    /* Distance des coins aux bords, modifiée dans la media query */
+    --corner-offset: 4px;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    color: var(--color-accent-brass);
+  }
+
+  /* Filet net */
+  .hero__vitrine::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 1px solid
+      color-mix(in srgb, var(--color-accent-brass) 70%, transparent);
+  }
+
+  /* Filet pâle */
+  .hero__vitrine::after {
+    content: "";
+    position: absolute;
+    inset: 15px;
+    border: 1px solid
+      color-mix(in srgb, var(--color-accent-brass) 28%, transparent);
+  }
+
+  /* Un seul dessin (coin haut gauche), retourné en miroir pour les trois autres */
+  .hero__corner {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+  }
+
+  .hero__corner--tl {
+    top: var(--corner-offset);
+    left: var(--corner-offset);
+  }
+
+  .hero__corner--tr {
+    top: var(--corner-offset);
+    right: var(--corner-offset);
+    transform: scaleX(-1);
+  }
+
+  .hero__corner--bl {
+    bottom: var(--corner-offset);
+    left: var(--corner-offset);
+    transform: scaleY(-1);
+  }
+
+  .hero__corner--br {
+    bottom: var(--corner-offset);
+    right: var(--corner-offset);
+    transform: scale(-1, -1);
+  }
+
+  /* ===== Contenu ===== */
 
   .hero__inner {
     display: flex;
@@ -214,6 +326,23 @@
   }
 
   @media (min-width: 768px) {
+    .hero__vitrine {
+      --corner-offset: 14px;
+    }
+
+    .hero__vitrine::before {
+      inset: 24px;
+    }
+
+    .hero__vitrine::after {
+      inset: 32px;
+    }
+
+    .hero__corner {
+      width: 56px;
+      height: 56px;
+    }
+
     .hero__actions {
       flex-wrap: nowrap;
       flex-direction: row;
