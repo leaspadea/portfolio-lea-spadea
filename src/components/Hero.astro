@@ -484,7 +484,7 @@
         );
       position: absolute;
       inset: 0;
-      display: flex;
+      display: none;
       perspective: 900px;
     }
 
@@ -716,15 +716,42 @@
       }
     }
 
-    /* Écrans peu hauts (portables) : médaillon réduit pour que le hero tienne dans l'écran */
-    @media (min-width: 768px) and (max-height: 920px) {
-      .hero__portrait-frame {
-        width: 300px;
-        height: 384px;
-      }
-    }
-
     @media (min-width: 1024px) {
+      .hero {
+        /* Marge du haut fluide : elle se resserre sur les fenêtres peu hautes */
+        --hero-pad: clamp(48px, 7svh, 64px);
+        /* Marge du bas : réserve la place de la poignée (40px du bas + 61px de haut + 11px d'écart) */
+        --hero-pad-bottom: 112px;
+        /* Hauteur fixe de la colonne médaillon hors cadre : clou + étiquette */
+        --medallion-extras: 300px;
+        padding-top: var(--hero-pad);
+        padding-bottom: var(--hero-pad-bottom);
+      }
+
+      /* Le cadre prend la hauteur restante dans la fenêtre, entre 180 et 442px.
+         Le clou suit la même échelle pour que les cordelettes restent posées sur l'ovale. */
+      .hero__medallion {
+        --frame-h: clamp(
+          180px,
+          calc(
+            100svh - var(--header-height) - 1px - var(--hero-pad) -
+              var(--hero-pad-bottom) - var(--medallion-extras)
+          ),
+          442px
+        );
+      }
+
+      .hero__portrait-frame {
+        width: auto;
+        height: var(--frame-h);
+        aspect-ratio: 345 / 442;
+      }
+
+      .hero__nail {
+        width: calc(var(--frame-h) * 140 / 442);
+        margin-bottom: calc(var(--frame-h) * -7 / 442);
+      }
+
       .hero__inner {
         flex-direction: row;
       }
@@ -735,6 +762,38 @@
 
       .hero__handle {
         display: inline-flex;
+      }
+    }
+
+    /* Fenêtres peu hautes : étiquette compacte, sans la ligne « Nom » qui répète le h1,
+       et poignée sans texte visible pour libérer de la hauteur */
+    @media (min-width: 1024px) and (max-height: 760px) {
+      .hero {
+        --medallion-extras: 250px;
+        /* 40px du bas + 30px de poignée + 12px d'écart */
+        --hero-pad-bottom: 82px;
+      }
+
+      /* Masqué visuellement mais toujours lu par les lecteurs d'écran (nom du lien) */
+      .hero__handle-label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+
+      .hero__tag-desktop {
+        display: none;
+      }
+
+      .hero__tag-card {
+        padding: 22px 18px 10px;
+      }
+
+      .hero__tag-title {
+        margin-bottom: var(--space-2);
       }
     }
 
