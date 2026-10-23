@@ -118,9 +118,26 @@
     </figure>
   </div>
 
-  <a class="hero__scroll" href="#collection">
-    Ouvrir la collection
-    <span aria-hidden="true">↓</span>
+  <a class="hero__handle" href="#collection">
+    <span class="hero__handle-label">Ouvrir la collection</span>
+    <svg
+      aria-hidden="true"
+      width="132"
+      height="30"
+      viewBox="0 0 132 30"
+      fill="none"
+    >
+      <rect class="hero__handle-post" x="12" y="0" width="9" height="20"></rect>
+      <rect class="hero__handle-post" x="111" y="0" width="9" height="20"
+      ></rect>
+      <rect class="hero__handle-bar" x="4" y="14" width="124" height="12" rx="6"
+      ></rect>
+      <path
+        class="hero__handle-shine"
+        d="M12 17.5 H120"
+        stroke-width="1.2"
+        stroke-linecap="round"></path>
+    </svg>
   </a>
 
   <style>
@@ -212,7 +229,7 @@
     .hero__text {
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-evenly;
     }
 
     .hero__eyebrow {
@@ -384,22 +401,49 @@
       display: none;
     }
 
-    /* Masqué en mobile : le contenu dépasse déjà l'écran et il recouvrirait les boutons */
-    .hero__scroll {
-      display: none;
-      position: absolute;
-      bottom: var(--space-4);
+    /* ===== Poignée ===== */
+
+    .hero__handle {
+      bottom: 40px;
       left: 50%;
+      gap: var(--space-3);
+      position: absolute;
       transform: translateX(-50%);
+      flex-direction: column;
       align-items: center;
-      gap: var(--space-2);
-      min-height: 44px;
+      text-decoration: none;
+      display: none;
+    }
+
+    .hero__handle-label {
       font-family: var(--font-label);
-      font-size: 0.9rem;
       text-transform: uppercase;
+      font-size: 0.75rem;
       letter-spacing: 0.16em;
       color: var(--color-accent-brass);
-      text-decoration: none;
+    }
+
+    .hero__handle:hover .hero__handle-label,
+    .hero__handle:focus-visible .hero__handle-label {
+      color: var(--color-text-primary);
+    }
+
+    .hero__handle:focus-visible {
+      outline: 2px solid var(--color-text-primary);
+      outline-offset: 6px;
+    }
+
+    .hero__handle-post {
+      fill: var(--color-accent-brass-shadow);
+    }
+
+    .hero__handle-bar {
+      fill: var(--color-accent-brass);
+    }
+
+    .hero__handle-shine {
+      stroke: var(--color-text-primary);
+      stroke-opacity: 0.35;
     }
 
     @media (min-width: 768px) {
@@ -470,7 +514,7 @@
         flex: 1 1 480px;
       }
 
-      .hero__scroll {
+      .hero__handle {
         display: inline-flex;
       }
     }
