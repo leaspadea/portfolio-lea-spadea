@@ -19,6 +19,7 @@
 
   /* --- Couleurs : Accents --- */
   --color-accent-brass: #B89460;
+  --color-accent-brass-shadow:  #8C6E43;
   --color-accent-brass-dark: #7A5A2E;
   --color-accent-bordeaux: #6B2D3E;
   --color-accent-bordeaux-hover: #7A3648;
@@ -64,7 +65,7 @@
   --max-width: 1400px;
 
   /* --- Header --- */
-  --header-height: 8rem;
+  --header-height: 5rem;
 }
 
 /* Tablette (≥768px) */
