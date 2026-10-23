@@ -197,6 +197,8 @@
     flex-direction: column-reverse;
     align-items: stretch;
     gap: var(--space-12);
+    /* Remplace la marge du .container pour dégager le contenu de la vitrine */
+    padding-inline: var(--space-8);
   }
 
   .hero__text {
@@ -341,6 +343,10 @@
     .hero__corner {
       width: 56px;
       height: 56px;
+    }
+
+    .hero__inner {
+      padding-inline: 4.5rem;
     }
 
     .hero__actions {
