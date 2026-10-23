@@ -74,27 +74,17 @@
       <div class="hero__swing">
         <svg
           class="hero__nail"
-          width="120"
-          height="64"
-          viewBox="0 0 120 64"
+          width="140"
+          height="40"
+          viewBox="0 0 140 40"
           aria-hidden="true"
+          stroke="currentColor"
+          stroke-width="1.2"
+          fill="none"
         >
-          <line
-            x1="60"
-            y1="4"
-            x2="10"
-            y2="58"
-            stroke="#B89460"
-            stroke-width="1.5"></line>
-          <line
-            x1="60"
-            y1="4"
-            x2="110"
-            y2="58"
-            stroke="#B89460"
-            stroke-width="1.5"></line>
-          <circle cx="60" cy="4" r="4" fill="#B89460"></circle>
-          <circle cx="60" cy="4" r="1.5" fill="#0B1A14"></circle>
+          <path d="M70 4 L30 40 M70 4 L110 40"></path>
+          <circle cx="70" cy="4" r="3.5" fill="currentColor"></circle>
+          <circle cx="70" cy="4" r="1.5" fill="#0B1A14"></circle>
         </svg>
         <div class="hero__portrait-frame">
           <img
@@ -255,8 +245,10 @@
   }
 
   .hero__nail {
-    width: 76px;
+    width: 100px;
     height: auto;
+    color: var(--color-accent-brass);
+    margin-bottom: -5px;
   }
 
   .hero__swing {
@@ -268,11 +260,9 @@
   .hero__portrait-frame {
     width: 200px;
     height: 256px;
+    padding: 9px;
     border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid var(--color-accent-brass);
-    outline: 2px solid var(--color-accent-brass);
-    outline-offset: 10px;
+    border: 1px solid var(--color-accent-brass);
   }
 
   .hero__portrait-frame img {
@@ -280,6 +270,7 @@
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+    border: 2px solid var(--color-accent-brass);
   }
 
   .hero__caption {
@@ -355,13 +346,14 @@
     }
 
     .hero__portrait-frame {
-      width: 314px;
-      height: 402px;
-      outline-offset: 15px;
+      width: 345px;
+      height: 442px;
+      padding: 14px;
     }
 
     .hero__nail {
-      width: 120px;
+      width: 140px;
+      margin-bottom: -7px;
     }
   }
 
