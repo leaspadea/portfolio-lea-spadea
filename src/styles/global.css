@@ -7,6 +7,11 @@
 
 /* --- Base --- */
 
+/* Les ancres (#collection…) s'arrêtent sous le header sticky au lieu d'être cachées dessous */
+html {
+  scroll-padding-top: var(--header-height);
+}
+
 body {
   font-family: var(--font-body);
   font-size: var(--text-body);
