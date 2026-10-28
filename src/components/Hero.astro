@@ -1,3 +1,19 @@
+<script is:inline>
+  try {
+    const motionAllowed = window.matchMedia(
+      "(prefers-reduced-motion: no-preference)",
+    ).matches;
+
+    const introSeen = sessionStorage.getItem("hero-intro-seen") !== null;
+
+    if (motionAllowed && !introSeen) {
+      document.documentElement.classList.add("intro");
+    }
+  } catch (error) {
+    // sessionStorage indisponible : pas d'intro, le hero s'affiche normalement
+  }
+</script>
+
 <section class="hero">
   <div class="hero__vitrine" aria-hidden="true">
     <svg
@@ -484,9 +500,19 @@
         );
       position: absolute;
       inset: 0;
-      display: flex;
       perspective: 900px;
       display: none;
+    }
+
+    :global(html.intro) .cabinet {
+      display: flex;
+      animation: cabinet-fallback 0s 6s forwards;
+    }
+
+    @keyframes cabinet-fallback {
+      to {
+        visibility: hidden;
+      }
     }
 
     /* Filet clair qui fait le tour de l'armoire */
