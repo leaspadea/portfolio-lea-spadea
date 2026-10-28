@@ -484,8 +484,9 @@
         );
       position: absolute;
       inset: 0;
-      display: none;
+      display: flex;
       perspective: 900px;
+      display: none;
     }
 
     /* Filet clair qui fait le tour de l'armoire */
@@ -516,7 +517,6 @@
     .cabinet__door--left {
       transform-origin: 0% 50%;
       box-shadow: inset -2px 0 0 rgba(0, 0, 0, 0.7);
-      transform: rotateY(-10deg);
     }
 
     .cabinet__door--right {
