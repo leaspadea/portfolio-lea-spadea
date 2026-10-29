@@ -496,6 +496,15 @@
       stroke-opacity: 0.35;
     }
 
+    .hero :global(.hero__dust) {
+      position: absolute;
+      border-radius: 50%;
+      background-color: var(--color-text-primary);
+      box-shadow: 0 0 2px rgba(232, 200, 140, 0.5);
+      pointer-events: none;
+      opacity: 0;
+    }
+
     /* ===== Armoire ===== */
 
     .cabinet {
@@ -891,6 +900,53 @@
     mm.add("(prefers-reduced-motion: no-preference)", () => {
       const tl = gsap.timeline();
 
+      const hero = document.querySelector(".hero");
+      if (hero instanceof HTMLElement) {
+        for (let i = 0; i < 45; i++) {
+          const dust = document.createElement("span");
+          dust.classList.add("hero__dust");
+          const left = gsap.utils.random(15, 85);
+          dust.style.left = left + "%";
+          const top = gsap.utils.random(10, 90);
+          dust.style.top = top + "%";
+          const size = gsap.utils.random(1, 2);
+          dust.style.width = size + "px";
+          dust.style.height = size + "px";
+          hero.append(dust);
+
+          // Même heure de départ pour les deux tweens du grain
+          const start = gsap.utils.random(0.9, 1.3);
+
+          // Mouvement : une dérive lente et courte, dans tous les sens, sur toute sa vie
+          tl.to(
+            dust,
+            {
+              x: gsap.utils.random(-25, 25),
+              y: gsap.utils.random(-30, 10),
+              duration: 1.6,
+              ease: "sine.inOut",
+            },
+            start,
+          );
+
+          // Lumière : il s'allume puis s'éteint en même temps que le halo
+          tl.to(
+            dust,
+            {
+              keyframes: [
+                {
+                  opacity: gsap.utils.random(0.2, 0.5),
+                  duration: 0.4,
+                  ease: "sine.out",
+                },
+                { opacity: 0, duration: 1.2, ease: "sine.in" },
+              ],
+            },
+            start,
+          );
+        }
+      }
+
       tl.to(
         ".cabinet__knob",
         { rotation: 90, ease: "power2.inOut", duration: 0.3 },
@@ -923,7 +979,12 @@
         0.5,
       );
 
-      tl.fromTo(".cabinet__shadow", { opacity: 0.8 }, { opacity: 0, duration: 1.2, ease: "power2.in" }, 0.5);
+      tl.fromTo(
+        ".cabinet__shadow",
+        { opacity: 0.8 },
+        { opacity: 0, duration: 1.2, ease: "power2.in" },
+        0.5,
+      );
 
       tl.set(".cabinet__slit", { opacity: 0, scaleX: 0.3 }, 0.5);
 
