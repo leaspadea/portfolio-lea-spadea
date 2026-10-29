@@ -843,7 +843,9 @@
   if (root.classList.contains("intro")) {
     const cabinet = document.querySelector(".cabinet");
 
-    cabinet.style.animation = "none";
+    if (cabinet instanceof HTMLElement) {
+      cabinet.style.animation = "none";
+    }
 
     try {
       sessionStorage.setItem("hero-intro-seen", "1");
@@ -856,9 +858,13 @@
     mm.add("(prefers-reduced-motion: no-preference)", () => {
       const tl = gsap.timeline();
 
-      tl.to(".cabinet__knob", { rotation: 90, ease: "power2.inOut", duration: 0.3 }, 0.2);
+      tl.to(
+        ".cabinet__knob",
+        { rotation: 90, ease: "power2.inOut", duration: 0.3 },
+        0.2,
+      );
 
-      tl.call(() => root.classList.remove("intro"), null, 1.7);
+      tl.call(() => root.classList.remove("intro"), [], 1.7);
 
       return () => root.classList.remove("intro");
     });
