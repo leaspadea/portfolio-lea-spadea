@@ -156,10 +156,11 @@
     </svg>
   </a>
 
+  <div class="hero__halo" aria-hidden="true"></div>
+
   <div class="cabinet" aria-hidden="true">
     <div class="cabinet__shadow"></div>
     <div class="cabinet__slit"></div>
-    <div class="cabinet__halo"></div>
     <div class="cabinet__door cabinet__door--left">
       <div class="cabinet__panel cabinet__panel--top"></div>
       <div class="cabinet__panel cabinet__panel--bottom"></div>
@@ -217,6 +218,21 @@
       inset: 15px;
       border: 1px solid
         color-mix(in srgb, var(--color-accent-brass) 28%, transparent);
+    }
+
+    .hero__halo {
+      inset: -10%;
+      mix-blend-mode: screen;
+      background: radial-gradient(
+        ellipse 70% 85% at 50% 50%,
+        rgba(240, 210, 150, 0.26),
+        rgba(232, 196, 130, 0.12) 40%,
+        rgba(232, 196, 130, 0.04) 65%,
+        transparent 85%
+      );
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
     }
 
     /* Un seul dessin (coin haut gauche), retourné en miroir pour les trois autres */
@@ -525,8 +541,7 @@
     }
 
     .cabinet__shadow,
-    .cabinet__slit,
-    .cabinet__halo {
+    .cabinet__slit {
       position: absolute;
       inset: 0;
       opacity: 0;
@@ -646,6 +661,24 @@
       left: 1px;
       transform-origin: 0% 50%;
       transform: rotateY(90deg);
+    }
+
+    .cabinet__shadow {
+      background-color: var(--color-bg-deep);
+    }
+
+    .cabinet__slit {
+      width: 360px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(232, 200, 140, 0.07) 22%,
+        rgba(240, 214, 160, 0.4) 50%,
+        rgba(232, 200, 140, 0.07) 78%,
+        transparent
+      );
+      left: calc(50% - 180px);
+      inset-block: -10%;
     }
 
     @media (min-width: 768px) {
@@ -864,23 +897,63 @@
         0.2,
       );
 
-      tl.to(".cabinet__door--left", {
-        keyframes: [
-          { rotationY: -10, duration: 0.18, ease: "power2.out" },
-          { rotationY: -8, duration: 0.18, ease: "sine.inOut" },
-          { rotationY: -100, duration: 0.66, ease: "power3.inOut" },
-          { rotationY: -106, opacity: 0, duration: 0.18, ease: "power2.out" },
-        ]
-      }, 0.5);
+      tl.to(
+        ".cabinet__door--left",
+        {
+          keyframes: [
+            { rotationY: -10, duration: 0.18, ease: "power2.out" },
+            { rotationY: -8, duration: 0.18, ease: "sine.inOut" },
+            { rotationY: -100, duration: 0.66, ease: "power3.inOut" },
+            { rotationY: -106, opacity: 0, duration: 0.18, ease: "power2.out" },
+          ],
+        },
+        0.5,
+      );
 
-      tl.to(".cabinet__door--right", {
-        keyframes: [
-          { rotationY: 10, duration: 0.18, ease: "power2.out" },
-          { rotationY: 8, duration: 0.18, ease: "sine.inOut" },
-          { rotationY: 100, duration: 0.66, ease: "power3.inOut" },
-          { rotationY: 106, opacity: 0, duration: 0.18, ease: "power2.out" },
-        ]
-      }, 0.5);
+      tl.to(
+        ".cabinet__door--right",
+        {
+          keyframes: [
+            { rotationY: 10, duration: 0.18, ease: "power2.out" },
+            { rotationY: 8, duration: 0.18, ease: "sine.inOut" },
+            { rotationY: 100, duration: 0.66, ease: "power3.inOut" },
+            { rotationY: 106, opacity: 0, duration: 0.18, ease: "power2.out" },
+          ],
+        },
+        0.5,
+      );
+
+      tl.fromTo(".cabinet__shadow", { opacity: 0.8 }, { opacity: 0, duration: 1.2, ease: "power2.in" }, 0.5);
+
+      tl.set(".cabinet__slit", { opacity: 0, scaleX: 0.3 }, 0.5);
+
+      tl.to(
+        ".cabinet__slit",
+        {
+          keyframes: [
+            { opacity: 0.9, scaleX: 1, duration: 0.144, ease: "sine.inOut" },
+            { opacity: 0.6, duration: 0.12, ease: "sine.inOut" },
+            { opacity: 1, scaleX: 1.2, duration: 0.096, ease: "sine.inOut" },
+            { opacity: 0.7, scaleX: 5, duration: 0.48, ease: "sine.inOut" },
+            { opacity: 0, scaleX: 8, duration: 0.36, ease: "sine.inOut" },
+          ],
+        },
+        0.5,
+      );
+
+      tl.set(".hero__halo", { opacity: 0, scale: 0.85 }, 0.6);
+
+      tl.to(
+        ".hero__halo",
+        {
+          keyframes: [
+            { opacity: 1, scale: 1, duration: 0.57, ease: "sine.inOut" },
+            { opacity: 0.85, scale: 1.05, duration: 0.475, ease: "sine.inOut" },
+            { opacity: 0, scale: 1.1, duration: 0.855, ease: "sine.inOut" },
+          ],
+        },
+        0.6,
+      );
 
       tl.call(() => root.classList.remove("intro"), [], 1.7);
 
