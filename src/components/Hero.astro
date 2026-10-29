@@ -864,6 +864,24 @@
         0.2,
       );
 
+      tl.to(".cabinet__door--left", {
+        keyframes: [
+          { rotationY: -10, duration: 0.18, ease: "power2.out" },
+          { rotationY: -8, duration: 0.18, ease: "sine.inOut" },
+          { rotationY: -100, duration: 0.66, ease: "power3.inOut" },
+          { rotationY: -106, opacity: 0, duration: 0.18, ease: "power2.out" },
+        ]
+      }, 0.5);
+
+      tl.to(".cabinet__door--right", {
+        keyframes: [
+          { rotationY: 10, duration: 0.18, ease: "power2.out" },
+          { rotationY: 8, duration: 0.18, ease: "sine.inOut" },
+          { rotationY: 100, duration: 0.66, ease: "power3.inOut" },
+          { rotationY: 106, opacity: 0, duration: 0.18, ease: "power2.out" },
+        ]
+      }, 0.5);
+
       tl.call(() => root.classList.remove("intro"), [], 1.7);
 
       return () => root.classList.remove("intro");
