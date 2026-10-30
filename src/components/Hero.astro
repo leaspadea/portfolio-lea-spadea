@@ -1016,6 +1016,13 @@
         0.6,
       );
 
+      tl.fromTo(
+        ".hero__medallion",
+        { rotation: -14, transformOrigin: "50% 4px" },
+        { rotation: 0, duration: 1.5, ease: "elastic.out(1, 0.3)" },
+        1,
+      );
+
       tl.call(() => root.classList.remove("intro"), [], 1.7);
 
       return () => root.classList.remove("intro");
