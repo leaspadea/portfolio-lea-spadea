@@ -1107,6 +1107,18 @@
         2.8,
       );
 
+      tl.from(
+        ".hero__handle",
+        { autoAlpha: 0, y: 12, duration: 0.5, ease: "power2.out" },
+        3.3,
+      );
+
+      tl.to(
+        ".hero__handle",
+        { y: 5, ease: "sine.inOut", duration: 1.2, repeat: 5, yoyo: true },
+        3.8,
+      );
+
       tl.call(() => root.classList.remove("intro"), [], 1.7);
 
       return () => root.classList.remove("intro");
