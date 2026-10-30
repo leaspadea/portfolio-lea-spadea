@@ -690,6 +690,12 @@
       inset-block: -10%;
     }
 
+    @media (prefers-reduced-motion: no-preference) {
+      .hero__medallion {
+        will-change: transform;
+      }
+    }
+
     @media (min-width: 768px) {
       .hero__vitrine {
         --corner-offset: 14px;
@@ -899,6 +905,7 @@
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
       const tl = gsap.timeline();
+      tl.timeScale(0.25); // TEST : vitesse x0,25, à retirer
 
       const hero = document.querySelector(".hero");
       if (hero instanceof HTMLElement) {
@@ -1021,6 +1028,16 @@
         { rotation: -14, transformOrigin: "50% 4px" },
         { rotation: 0, duration: 1.5, ease: "elastic.out(1, 0.3)" },
         1,
+      );
+
+      tl.from(
+        ".hero__tag-hang",
+        {
+          rotation: 10,
+          duration: 1.8,
+          ease: "elastic.out(1, 0.35)",
+        },
+        1.1,
       );
 
       tl.call(() => root.classList.remove("intro"), [], 1.7);
