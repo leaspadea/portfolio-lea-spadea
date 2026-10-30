@@ -71,7 +71,7 @@
     <div class="hero__text">
       <p class="hero__eyebrow">
         <span class="hero__eyebrow-line">Développeuse web</span>
-        <span class="hero__eyebrow-sep" aria-hidden="true"> · </span>
+        <span class="hero__eyebrow-sep" aria-hidden="true"> § </span>
         <span class="hero__eyebrow-line">Cabinet de curiosités numériques</span>
       </p>
       <h1 class="hero__title">Léa Spadea</h1>
@@ -296,6 +296,7 @@
     }
     .hero__eyebrow-sep {
       display: none;
+      white-space: pre;
     }
 
     .hero__title {
@@ -873,10 +874,10 @@
 
     @media (min-width: 1200px) {
       .hero__eyebrow-line {
-        display: inline;
+        display: inline-block;
       }
       .hero__eyebrow-sep {
-        display: inline;
+        display: inline-block;
       }
     }
   </style>
@@ -905,7 +906,7 @@
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
       const tl = gsap.timeline();
-      tl.timeScale(0.25); // TEST : vitesse x0,25, à retirer
+      /*tl.timeScale(0.25); // TEST : vitesse x0,25*/
 
       const hero = document.querySelector(".hero");
       if (hero instanceof HTMLElement) {
@@ -1038,6 +1039,27 @@
           ease: "elastic.out(1, 0.35)",
         },
         1.1,
+      );
+
+      tl.fromTo(
+        ".hero__eyebrow-line:first-child",
+        { clipPath: "inset(0 100% 0 0)" },
+        { clipPath: "inset(0 0% 0 0)", duration: 0.48, ease: "steps(16)" },
+        1.5,
+      );
+
+      tl.fromTo(
+        ".hero__eyebrow-sep",
+        { clipPath: "inset(0 100% 0 0)" },
+        { clipPath: "inset(0 0% 0 0)", duration: 0.09, ease: "steps(3)" },
+        1.98,
+      );
+
+      tl.fromTo(
+        ".hero__eyebrow-line:last-child",
+        { clipPath: "inset(0 100% 0 0)" },
+        { clipPath: "inset(0 0% 0 0)", duration: 0.96, ease: "steps(32)" },
+        2.07,
       );
 
       tl.call(() => root.classList.remove("intro"), [], 1.7);
