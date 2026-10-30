@@ -134,7 +134,9 @@
     </figure>
   </div>
 
-  <a class="hero__handle" href="#collection">
+  <!-- Indice visuel en doublon du bouton « Voir la collection » :
+       retiré du parcours clavier et lecteur d'écran, reste cliquable à la souris -->
+  <a class="hero__handle" href="#collection" tabindex="-1" aria-hidden="true">
     <span class="hero__handle-label">Ouvrir la collection</span>
     <svg
       aria-hidden="true"
@@ -487,14 +489,8 @@
       color: var(--color-accent-brass);
     }
 
-    .hero__handle:hover .hero__handle-label,
-    .hero__handle:focus-visible .hero__handle-label {
+    .hero__handle:hover .hero__handle-label {
       color: var(--color-text-primary);
-    }
-
-    .hero__handle:focus-visible {
-      outline: 2px solid var(--color-text-primary);
-      outline-offset: 6px;
     }
 
     .hero__handle-post {
