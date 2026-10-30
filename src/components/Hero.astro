@@ -1,5 +1,6 @@
 ---
 import Cabinet from "./hero/Cabinet.astro";
+import Medallion from "./hero/Medallion.astro";
 ---
 
 <script is:inline>
@@ -90,52 +91,7 @@ import Cabinet from "./hero/Cabinet.astro";
     </div>
 
     <!-- Médaillon portrait -->
-    <figure class="hero__medallion">
-      <div class="hero__swing">
-        <svg
-          class="hero__nail"
-          width="140"
-          height="40"
-          viewBox="0 0 140 40"
-          aria-hidden="true"
-          stroke="currentColor"
-          stroke-width="1.2"
-          fill="none"
-        >
-          <path d="M70 4 L30 40 M70 4 L110 40"></path>
-          <circle cx="70" cy="4" r="3.5" fill="currentColor"></circle>
-          <circle cx="70" cy="4" r="1.5" fill="#0B1A14"></circle>
-        </svg>
-        <div class="hero__portrait-frame">
-          <img
-            src="/images/portrait.webp"
-            alt="Portrait de Léa Spadea"
-            width="520"
-            height="660"
-          />
-        </div>
-      </div>
-      <figcaption class="hero__tag">
-        <div class="hero__tag-hang">
-          <div class="hero__tag-shadow">
-            <div class="hero__tag-card">
-              <span class="hero__tag-eyelet" aria-hidden="true"></span>
-              <p class="hero__tag-title">Spécimen · 2026</p>
-              <dl class="hero__tag-list">
-                <dt class="hero__tag-desktop">Nom</dt>
-                <dd class="hero__tag-desktop">Léa Spadea</dd>
-                <dt>Espèce</dt>
-                <dd><i>Integratrix web</i></dd>
-                <dt>Habitat</dt>
-                <dd>VS Code</dd>
-                <dt><abbr title="Signe particulier">Signe part.</abbr></dt>
-                <dd>Ex-vendeuse&nbsp;: écoute avant de coder</dd>
-              </dl>
-            </div>
-          </div>
-        </div>
-      </figcaption>
-    </figure>
+    <Medallion />
   </div>
 
   <!-- Indice visuel en doublon du bouton « Voir la collection » :
@@ -330,132 +286,6 @@ import Cabinet from "./hero/Cabinet.astro";
       justify-content: center;
     }
 
-    .hero__medallion {
-      align-self: center;
-    }
-
-    .hero__nail {
-      width: 100px;
-      height: auto;
-      color: var(--color-accent-brass);
-      margin-bottom: -5px;
-    }
-
-    .hero__swing {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .hero__portrait-frame {
-      width: 200px;
-      height: 256px;
-      padding: 9px;
-      border-radius: 50%;
-      border: 1px solid var(--color-accent-brass);
-    }
-
-    .hero__portrait-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid var(--color-accent-brass);
-    }
-
-    .hero__tag {
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero__tag-hang {
-      /* Longueur visible de la ficelle, modifiée dans la media query */
-      --string-length: 14px;
-      position: relative;
-      padding-top: var(--string-length);
-      transform: rotate(2.5deg);
-      transform-origin: 50% 0;
-    }
-
-    /* La ficelle descend jusqu'au centre de l'œillet (6px de marge + 6px de rayon) */
-    .hero__tag-hang::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1px;
-      height: calc(var(--string-length) + 12px);
-      background-color: var(--color-text-secondary);
-    }
-
-    .hero__tag-shadow {
-      filter: drop-shadow(4px 5px 0 rgba(5, 13, 10, 0.45));
-    }
-
-    .hero__tag-card {
-      position: relative;
-      width: 250px;
-      background-color: var(--color-bg-paper);
-      color: var(--color-text-ink);
-      padding: 24px 20px 12px;
-      clip-path: polygon(
-        16px 0,
-        calc(100% - 16px) 0,
-        100% 16px,
-        100% 100%,
-        0 100%,
-        0 16px
-      );
-    }
-
-    .hero__tag-eyelet {
-      position: absolute;
-      top: 6px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 50%;
-      width: 12px;
-      height: 12px;
-      border: 2px solid var(--color-accent-brass-shadow);
-      background-color: var(--color-bg-deep);
-    }
-
-    .hero__tag-title {
-      font-weight: 700;
-      font-size: 1rem;
-      font-family: var(--font-label);
-      letter-spacing: 0.14em;
-      text-align: center;
-      text-transform: uppercase;
-      border-bottom: 2px solid var(--color-accent-bordeaux);
-      padding-bottom: 6px;
-      margin-bottom: var(--space-3);
-    }
-
-    .hero__tag-list {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 4px 12px;
-      align-items: baseline;
-    }
-
-    .hero__tag-list dt {
-      font-family: var(--font-label);
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      color: var(--color-accent-brass-dark);
-    }
-
-    .hero__tag-list dd {
-      font-family: var(--font-display);
-      font-size: 1rem;
-    }
-
-    .hero__tag-desktop {
-      display: none;
-    }
-
     /* ===== Poignée ===== */
 
     .hero__handle {
@@ -504,12 +334,6 @@ import Cabinet from "./hero/Cabinet.astro";
       opacity: 0;
     }
 
-    @media (prefers-reduced-motion: no-preference) {
-      .hero__medallion {
-        will-change: transform;
-      }
-    }
-
     @media (min-width: 768px) {
       .hero__vitrine {
         --corner-offset: 14px;
@@ -536,29 +360,6 @@ import Cabinet from "./hero/Cabinet.astro";
         flex-wrap: nowrap;
         flex-direction: row;
       }
-
-      .hero__portrait-frame {
-        width: 345px;
-        height: 442px;
-        padding: 14px;
-      }
-
-      .hero__nail {
-        width: 140px;
-        margin-bottom: -7px;
-      }
-
-      .hero__tag-hang {
-        --string-length: 16px;
-      }
-
-      .hero__tag-card {
-        width: 280px;
-      }
-
-      .hero__tag-desktop {
-        display: block;
-      }
     }
 
     @media (min-width: 1024px) {
@@ -571,30 +372,6 @@ import Cabinet from "./hero/Cabinet.astro";
         --medallion-extras: 300px;
         padding-top: var(--hero-pad);
         padding-bottom: var(--hero-pad-bottom);
-      }
-
-      /* Le cadre prend la hauteur restante dans la fenêtre, entre 180 et 442px.
-         Le clou suit la même échelle pour que les cordelettes restent posées sur l'ovale. */
-      .hero__medallion {
-        --frame-h: clamp(
-          180px,
-          calc(
-            100svh - var(--header-height) - 1px - var(--hero-pad) -
-              var(--hero-pad-bottom) - var(--medallion-extras)
-          ),
-          442px
-        );
-      }
-
-      .hero__portrait-frame {
-        width: auto;
-        height: var(--frame-h);
-        aspect-ratio: 345 / 442;
-      }
-
-      .hero__nail {
-        width: calc(var(--frame-h) * 140 / 442);
-        margin-bottom: calc(var(--frame-h) * -7 / 442);
       }
 
       .hero__inner {
@@ -610,8 +387,8 @@ import Cabinet from "./hero/Cabinet.astro";
       }
     }
 
-    /* Fenêtres peu hautes : étiquette compacte, sans la ligne « Nom » qui répète le h1,
-       et poignée sans texte visible pour libérer de la hauteur */
+    /* Fenêtres peu hautes : poignée sans texte visible pour libérer de la hauteur
+       (l'étiquette compacte est gérée dans hero/Medallion.astro) */
     @media (min-width: 1024px) and (max-height: 760px) {
       .hero {
         --medallion-extras: 250px;
@@ -627,18 +404,6 @@ import Cabinet from "./hero/Cabinet.astro";
         overflow: hidden;
         clip-path: inset(50%);
         white-space: nowrap;
-      }
-
-      .hero__tag-desktop {
-        display: none;
-      }
-
-      .hero__tag-card {
-        padding: 22px 18px 10px;
-      }
-
-      .hero__tag-title {
-        margin-bottom: var(--space-2);
       }
     }
 
