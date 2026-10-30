@@ -1121,7 +1121,29 @@
 
       tl.call(() => root.classList.remove("intro"), [], 1.7);
 
-      return () => root.classList.remove("intro");
+      const skipIntro = () => {
+        tl.progress(1);
+      };
+      document.addEventListener("click", skipIntro);
+
+      const onKeydown = (event: KeyboardEvent) => {
+        if (event.key === "Escape") {
+          skipIntro();
+        }
+      };
+      document.addEventListener("keydown", onKeydown);
+
+      const removeSkipListeners = () => {
+        document.removeEventListener("keydown", onKeydown)
+        document.removeEventListener("click", skipIntro)
+      };
+
+      tl.eventCallback("onComplete", removeSkipListeners);
+
+      return () => {
+        root.classList.remove("intro");
+        removeSkipListeners();
+      };
     });
   }
 </script>
