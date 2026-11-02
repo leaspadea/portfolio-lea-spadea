@@ -15,10 +15,10 @@
     </div>
 
     <div class="drawer">
-      <p class="drawer__label">Le meuble à tiroirs</p>
+      <h3 class="drawer__label">Le meuble à tiroirs</h3>
       <div class="about__grid">
         <div class="about__skill-block">
-          <h3>Front-end</h3>
+          <h4>Front-end</h4>
           <ul>
             <li>HTML</li>
             <li>CSS</li>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="about__skill-block">
-          <h3>Outils</h3>
+          <h4>Outils</h4>
           <ul>
             <li>Git</li>
             <li>GitHub</li>
@@ -43,7 +43,7 @@
         </div>
 
         <div class="about__skill-block">
-          <h3>Frameworks</h3>
+          <h4>Frameworks</h4>
           <ul>
             <li>Astro</li>
             <li>React</li>
@@ -53,7 +53,7 @@
         </div>
 
         <div class="about__skill-block">
-          <h3>Qualité</h3>
+          <h4>Qualité</h4>
           <ul>
             <li>SEO</li>
             <li>performance</li>
@@ -144,6 +144,7 @@
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: var(--color-accent-brass-dark);
+      font-weight: 400;
     }
 
     .about__grid {
@@ -211,7 +212,7 @@
     }
 
     /* Plaque laiton */
-    .about__skill-block h3 {
+    .about__skill-block h4 {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -226,8 +227,8 @@
     }
 
     /* Vis de la plaque */
-    .about__skill-block h3::before,
-    .about__skill-block h3::after {
+    .about__skill-block h4::before,
+    .about__skill-block h4::after {
       content: "";
       flex-shrink: 0;
       width: 5px;
