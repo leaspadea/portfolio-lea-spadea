@@ -24,20 +24,7 @@
 <style>
   .cabinet {
     /* Veinage du bois, réutilisé sur les portes, les cadres et les creux */
-    --wood-grain:
-      repeating-linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.14) 0 1px,
-        transparent 1px 7px,
-        rgba(233, 226, 208, 0.03) 7px 8px,
-        transparent 8px 19px
-      ),
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 43px,
-        rgba(0, 0, 0, 0.16) 43px 45px,
-        transparent 45px 97px
-      );
+    --wood-grain: var(--texture-wood-grain);
     position: absolute;
     inset: 0;
     perspective: 900px;

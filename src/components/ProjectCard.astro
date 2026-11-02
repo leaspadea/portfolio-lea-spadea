@@ -45,8 +45,27 @@ const { title, description, image, tags, number, siteUrl, repoUrl, featured } = 
   }
 
   .card__image-frame {
-    border: 1px solid var(--color-accent-brass);
+    position: relative;
+    border: 1px solid color-mix(in srgb, var(--color-accent-brass) 55%, transparent);
     padding: 6px;
+  }
+
+  /* Les huit petits traits dessinent quatre équerres sans masquer la capture. */
+  .card__image-frame::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    color: var(--color-accent-brass);
+    background:
+      linear-gradient(currentColor, currentColor) left top / 14px 2px no-repeat,
+      linear-gradient(currentColor, currentColor) left top / 2px 14px no-repeat,
+      linear-gradient(currentColor, currentColor) right top / 14px 2px no-repeat,
+      linear-gradient(currentColor, currentColor) right top / 2px 14px no-repeat,
+      linear-gradient(currentColor, currentColor) left bottom / 14px 2px no-repeat,
+      linear-gradient(currentColor, currentColor) left bottom / 2px 14px no-repeat,
+      linear-gradient(currentColor, currentColor) right bottom / 14px 2px no-repeat,
+      linear-gradient(currentColor, currentColor) right bottom / 2px 14px no-repeat;
+    pointer-events: none;
   }
 
   .card__image-frame img {
@@ -65,17 +84,34 @@ const { title, description, image, tags, number, siteUrl, repoUrl, featured } = 
   }
 
   .card__number {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-accent-brass);
+    background-color: var(--color-bg-deep);
     font-family: var(--font-label);
     text-transform: uppercase;
     letter-spacing: 0.14em;
     color: var(--color-accent-brass);
     font-size: 0.9rem;
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .card__number::before,
+  .card__number::after {
+    content: "";
+    flex-shrink: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--color-accent-brass);
   }
 
   .card__content h3 {
     font-family: var(--font-display);
-    font-size: var(--text-h3);
+    font-size: clamp(1.5rem, 2.2vw, 2rem);
     margin-bottom: var(--space-2);
   }
 
@@ -112,22 +148,26 @@ const { title, description, image, tags, number, siteUrl, repoUrl, featured } = 
   }
 
   .card--featured {
-    flex-direction: row;
     gap: var(--space-6);
   }
 
-  .card--featured .card__image-frame {
-    flex: 1 1 50%;
-    min-width: 300px;
+  .card--featured .card__content h3 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
   }
 
-  .card--featured .card__content {
-    flex: 1 1 45%;
-  }
-
-  @media (max-width: 767px) {
+  @media (min-width: 768px) {
     .card--featured {
-      flex-direction: column;
+      flex-direction: row;
+    }
+
+    .card--featured .card__image-frame {
+      flex: 1 1 50%;
+      min-width: 0;
+    }
+
+    .card--featured .card__content {
+      flex: 1 1 45%;
+      min-width: 0;
     }
   }
 </style>

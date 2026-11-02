@@ -104,7 +104,8 @@
 
     .bio__hero {
       display: flex;
-      align-items: flex-end;
+      flex-direction: column;
+      align-items: flex-start;
       justify-content: space-between;
       margin-top: 2rem;
       padding-bottom: calc(2rem - 3px);
@@ -150,11 +151,15 @@
       grid-template-columns: 1fr;
       gap: var(--space-4);
       padding: var(--space-4);
-      background:
-        linear-gradient(rgba(20, 37, 30, 0.85), rgba(20, 37, 30, 0.85)),
-        url("/images/wood-pattern.jpg") repeat;
-      background-size: auto, 200px;
+      /* Réserve la place de l'intérieur sombre et de l'agrandissement au survol. */
+      padding-top: calc(var(--space-4) + 4px);
+      background: var(--texture-wood-grain), var(--color-bg-forest);
       border: 1px solid var(--color-accent-brass-dark);
+      /* Une plinthe sous le cadre donne une assise au meuble. */
+      border-bottom: 12px solid var(--color-bg-deep);
+      box-shadow:
+        0 2px 0 var(--color-accent-brass-dark),
+        0 8px 12px rgba(11, 26, 20, 0.18);
     }
 
     /* ===== Tiroir ===== */
@@ -167,10 +172,7 @@
       justify-content: space-between;
       gap: var(--space-4);
       padding: 2.5rem 2rem;
-      background:
-        linear-gradient(rgba(28, 49, 41, 0.93), rgba(28, 49, 41, 0.93)),
-        url("/images/wood-pattern.jpg") repeat;
-      background-size: auto, 200px;
+      background: var(--texture-wood-grain), var(--color-bg-surface);
       box-shadow:
         inset 0 0 0 5px var(--color-bg-forest),
         inset 0 0 0 6px var(--color-border-subtle);
@@ -238,6 +240,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      gap: var(--space-1) var(--space-3);
     }
 
     .about__skill-block li {
@@ -247,11 +250,6 @@
       color: var(--color-text-secondary);
     }
 
-    .about__skill-block li + li::before {
-      content: "·";
-      margin-inline: var(--space-2);
-    }
-
     .handle {
       width: 18px;
       height: 18px;
@@ -259,7 +257,7 @@
       margin-inline: auto;
       border-radius: 50%;
       background: var(--color-accent-brass);
-      box-shadow: inset 0 0 0 3px #8c6e43;
+      box-shadow: inset 0 0 0 3px var(--color-accent-brass-shadow);
     }
 
     /* ===== Ouverture du tiroir au survol ===== */
@@ -295,6 +293,12 @@
 
     /* Tablette */
     @media (min-width: 768px) {
+      .bio__hero {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-end;
+      }
+
       .about__grid {
         grid-template-columns: repeat(2, 1fr);
       }
