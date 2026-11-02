@@ -18,9 +18,9 @@
 
     <!-- Menu de navigation -->
     <ul id="nav-menu" class="header__menu" role="list">
-      <li><a href="#collection" class="header__link">La collection</a></li>
-      <li><a href="#a-propos" class="header__link">À propos</a></li>
-      <li><a href="#correspondance" class="header__link">Correspondance</a></li>
+      <li><a href="#collection" class="header__link link-underline">La collection</a></li>
+      <li><a href="#a-propos" class="header__link link-underline">À propos</a></li>
+      <li><a href="#correspondance" class="header__link link-underline">Correspondance</a></li>
     </ul>
   </nav>
 </header>
@@ -140,14 +140,18 @@
     font-size: 1.1rem;
     font-weight: 400;
     color: var(--color-text-secondary);
-    transition: color 0.2s ease;
     text-transform: uppercase;
     letter-spacing: 0.16em;
   }
 
-  .header__link:hover {
+  .header__link:focus-visible {
     color: var(--color-accent-brass);
-    text-decoration: none;
+  }
+
+  @media (hover: hover) {
+    .header__link:hover {
+      color: var(--color-accent-brass);
+    }
   }
 
   /* Desktop (≥768px) */

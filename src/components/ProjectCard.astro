@@ -28,8 +28,8 @@ const { title, description, image, tags, number, siteUrl, repoUrl, featured } = 
     </div>
 
     <div class="card__links">
-      {siteUrl && <a href={siteUrl} target="_blank" rel="noopener noreferrer">Voir le site →</a>}
-      {repoUrl && <a href={repoUrl} target="_blank" rel="noopener noreferrer">Voir le code →</a>}
+      {siteUrl && <a class="link-underline" href={siteUrl} target="_blank" rel="noopener noreferrer">Voir le site →</a>}
+      {repoUrl && <a class="link-underline" href={repoUrl} target="_blank" rel="noopener noreferrer">Voir le code →</a>}
     </div>
   </div>
 </article>
@@ -48,6 +48,26 @@ const { title, description, image, tags, number, siteUrl, repoUrl, featured } = 
     position: relative;
     border: 1px solid color-mix(in srgb, var(--color-accent-brass) 55%, transparent);
     padding: 6px;
+    box-shadow: 0 0 0 1px transparent;
+  }
+
+  /* Le focus d'un lien met aussi en valeur le cadre du projet associé. */
+  .card:focus-within .card__image-frame {
+    border-color: var(--color-accent-brass);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-accent-brass) 25%, transparent);
+  }
+
+  @media (hover: hover) {
+    .card:hover .card__image-frame {
+      border-color: var(--color-accent-brass);
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-accent-brass) 25%, transparent);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .card__image-frame {
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
   }
 
   /* Les huit petits traits dessinent quatre équerres sans masquer la capture. */
@@ -141,10 +161,6 @@ const { title, description, image, tags, number, siteUrl, repoUrl, featured } = 
     font-style: italic;
     color: var(--color-accent-brass);
     font-size: 1.05rem;
-  }
-
-  .card__links a:hover {
-    text-decoration: underline;
   }
 
   .card--featured {

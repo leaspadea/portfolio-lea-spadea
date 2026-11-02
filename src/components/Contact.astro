@@ -87,11 +87,13 @@
 
       <div class="contact__links">
         <a
+          class="link-underline"
           href="https://github.com/leaspadea"
           target="_blank"
           rel="noopener noreferrer">GitHub</a
         >
         <a
+          class="link-underline"
           href="https://www.linkedin.com/in/lea-spadea/"
           target="_blank"
           rel="noopener noreferrer">LinkedIn</a
@@ -263,6 +265,11 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-6);
+  }
+
+  .contact__form .btn-primary:focus-visible {
+    outline-color: var(--color-accent-bordeaux);
+    outline-offset: 4px;
   }
 
   .hidden {

@@ -10,6 +10,7 @@
 /* Les ancres (#collection…) s'arrêtent sous le header sticky au lieu d'être cachées dessous */
 html {
   scroll-padding-top: var(--header-height);
+  scrollbar-color: var(--color-accent-brass) var(--color-bg-forest);
 }
 
 body {
@@ -49,12 +50,35 @@ h3,
 
 a {
   color: var(--color-accent-brass);
-  transition: text-decoration-color 0.2s ease;
 }
 
 a:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* Le trait utilise la couleur du lien, y compris le laiton foncé sur papier. */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: left calc(50% + 0.7em);
+  background-size: 0 1px;
+}
+
+.link-underline:hover {
+  text-decoration: none;
+}
+
+.link-underline:focus-visible {
+  background-size: 100% 1px;
+  outline-color: currentColor;
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
 }
 
 /* --- Bouton CTA --- */
@@ -71,13 +95,21 @@ a:hover {
   min-height: 48px;
   padding: 0 26px;
   border: 1px solid var(--color-accent-brass);
-  transition: background-color 0.2s ease;
   text-decoration: none;
 }
 
-.btn-primary:hover {
+.btn-primary:focus-visible {
   background: var(--color-accent-bordeaux-hover);
+}
+
+.btn-primary:hover {
   text-decoration: none;
+}
+
+@media (hover: hover) {
+  .btn-primary:hover {
+    background: var(--color-accent-bordeaux-hover);
+  }
 }
 
 /* --- Bouton outline (secondaire) --- */
@@ -94,7 +126,6 @@ a:hover {
   min-height: 48px;
   padding: 0 26px;
   border: 1px solid var(--color-accent-brass);
-  transition: background-color 0.2s ease, color 0.2s ease;
   text-decoration: none;
 }
 
@@ -204,9 +235,21 @@ a:hover {
   margin-top: var(--space-8);
 }
 
-/* --- Scroll reveal --- */
+/* --- Transitions et apparition au défilement --- */
 
 @media (prefers-reduced-motion: no-preference) {
+  .link-underline {
+    transition: background-size 0.25s ease, color 0.2s ease;
+  }
+
+  .btn-primary {
+    transition: background-color 0.2s ease;
+  }
+
+  .btn-outline {
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
   .reveal {
     opacity: 0;
     transform: translateY(20px);
