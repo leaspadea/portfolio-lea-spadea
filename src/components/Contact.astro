@@ -1,18 +1,47 @@
-<section id="correspondance" class="section reveal">
+<section id="correspondance" class="section contact reveal">
   <div class="container">
     <p class="section-eyebrow">Correspondance</p>
     <h2 class="section-title">Écrivez-moi <em>une lettre</em></h2>
 
     <div class="contact__postcard">
       <div class="contact__intro">
-        <p>
-          Un projet, une question, une simple curiosité ? Ma boîte aux lettres
+        <p class="contact__card-title">Carte postale</p>
+        <p class="contact__recipient">
+          <span>À l'attention de</span>
+          Léa Spadea
+        </p>
+        <p class="contact__invitation">
+          Un projet, une question, une simple curiosité&nbsp;? Ma boîte aux lettres
           est ouverte.
         </p>
       </div>
 
       <div class="contact__message">
-        <span class="contact__stamp" aria-hidden="true">LS</span>
+        <div class="contact__postage" aria-hidden="true">
+          <!-- Cachet et timbre sont décoratifs ; le formulaire garde ses propres labels. -->
+          <svg class="contact__postmark" viewBox="0 0 190 100" fill="none">
+            <g stroke="currentColor" stroke-width="1">
+              <circle cx="51" cy="50" r="44" />
+              <circle cx="51" cy="50" r="38" />
+              <path d="M87 34C106 24 113 44 132 34S157 24 182 34M93 46C112 36 119 56 138 46S163 36 188 46M93 58C112 48 119 68 138 58S163 48 188 58M87 70C106 60 113 80 132 70S157 60 182 70" />
+              <path d="M29 50H73" />
+            </g>
+            <g fill="currentColor" text-anchor="middle">
+              <text x="51" y="37" font-size="10" letter-spacing="1">LE CABINET</text>
+              <text x="51" y="67" font-size="8" letter-spacing="0.5">DE LÉA</text>
+            </g>
+          </svg>
+          <span class="contact__stamp">
+            <svg class="contact__stamp-engraving" viewBox="0 0 64 80" fill="none">
+              <g stroke="currentColor" stroke-width="0.8">
+                <rect x="3" y="3" width="58" height="74" />
+                <!-- Les petites courbes forment directement le contour festonné de l'ovale. -->
+                <path d="M32 13 Q35.6 9.37 37.87 14.27 Q42.44 12.27 43.17 17.97 Q48.26 17.79 47.37 23.72 Q52.49 25.38 50.07 30.97 Q54.72 34.31 51 39 Q54.72 43.69 50.07 47.03 Q52.49 52.62 47.37 54.28 Q48.26 60.21 43.17 60.03 Q42.44 65.73 37.87 63.73 Q35.6 68.63 32 65 Q28.4 68.63 26.13 63.73 Q21.56 65.73 20.83 60.03 Q15.74 60.21 16.63 54.28 Q11.51 52.62 13.93 47.03 Q9.28 43.69 13 39 Q9.28 34.31 13.93 30.97 Q11.51 25.38 16.63 23.72 Q15.74 17.79 20.83 17.97 Q21.56 12.27 26.13 14.27 Q28.4 9.37 32 13 Z" />
+              </g>
+            </svg>
+            <span class="contact__stamp-monogram">LS</span>
+          </span>
+        </div>
         <form
           class="contact__form"
           name="contact"
@@ -73,8 +102,22 @@
 </section>
 
 <style>
+  .contact {
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(233, 226, 208, 0.028) 0 2px,
+      transparent 2px 30px
+    );
+  }
+
+  .contact .section-title {
+    margin-bottom: var(--space-8);
+    text-align: center;
+  }
+
   .contact__postcard {
     --postcard-frieze-width: 10px;
+    --postcard-padding: var(--space-6);
     position: relative;
     background-color: var(--color-bg-paper);
     color: var(--color-text-ink);
@@ -83,7 +126,7 @@
     border-image-source: url("/images/postcard-border.svg");
     border-image-slice: 24;
     border-image-repeat: round;
-    padding: var(--space-6);
+    padding: var(--postcard-padding);
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
@@ -105,9 +148,36 @@
 
   .contact__intro {
     grid-area: intro;
+    /* Réserve la hauteur du timbre, ses marges et un espace avant le texte. */
+    padding-top: calc(100px + 2 * var(--space-2) + var(--space-8));
   }
 
-  .contact__intro p {
+  .contact__card-title {
+    margin-bottom: var(--space-8);
+    font-family: var(--font-label);
+    font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent-brass-dark);
+  }
+
+  .contact__recipient {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1.3;
+  }
+
+  .contact__recipient span {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-family: var(--font-label);
+    font-size: var(--text-small);
+    color: var(--color-accent-brass-dark);
+  }
+
+  .contact__invitation {
+    max-width: 30ch;
+    margin-top: var(--space-8);
     font-family: var(--font-display);
     font-style: italic;
     color: var(--color-text-ink);
@@ -137,19 +207,55 @@
     padding-top: var(--space-8);
   }
 
+  .contact__postage {
+    /* En mobile, la carte est le repère de ce décor placé dans son coin supérieur droit. */
+    position: absolute;
+    top: var(--postcard-padding);
+    right: var(--postcard-padding);
+    width: min(calc(100% - 2 * var(--postcard-padding)), 240px);
+    margin-left: auto;
+    padding-block: var(--space-2);
+    color: var(--color-accent-brass-dark);
+    pointer-events: none;
+  }
+
+  .contact__postmark {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    z-index: 1;
+    width: 190px;
+    max-width: 85%;
+    height: auto;
+    transform: rotate(-12deg);
+    opacity: 0.6;
+    font-family: var(--font-label);
+  }
+
   .contact__stamp {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 64px;
-    height: 80px;
+    width: 80px;
+    height: 100px;
     border: 2px dashed var(--color-accent-brass-dark);
+    background-color: var(--color-bg-paper-light);
+    margin-left: auto;
+    transform: rotate(4deg);
+  }
+
+  .contact__stamp-engraving {
+    position: absolute;
+    inset: 4px;
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
+  }
+
+  .contact__stamp-monogram {
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-style: italic;
-    color: var(--color-accent-brass-dark);
-    margin-left: auto;
-    margin-bottom: var(--space-6);
   }
 
   .contact__form {
@@ -207,9 +313,8 @@
   @media (min-width: 768px) {
     .contact__postcard {
       --postcard-frieze-width: 16px;
-      padding: 40px;
+      --postcard-padding: 40px;
     }
-
   }
 
   @media (min-width: 1024px) {
@@ -220,6 +325,18 @@
       grid-template-areas:
         "intro message"
         "links message";
+    }
+
+    .contact__intro {
+      padding-top: 0;
+    }
+
+    .contact__postage {
+      position: relative;
+      top: auto;
+      right: auto;
+      width: min(100%, 240px);
+      margin-bottom: var(--space-8);
     }
 
     .contact__message {
