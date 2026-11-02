@@ -1,44 +1,145 @@
 <section id="correspondance" class="section reveal">
   <div class="container">
-    <h2 class="section-title">Contact</h2>
-    <p class="section-subtitle">
-      Une question, un projet ? N'hésitez pas à me contacter.
-    </p>
+    <p class="section-eyebrow">Correspondance</p>
+    <h2 class="section-title">Écrivez-moi <em>une lettre</em></h2>
 
-    <form
-      class="contact__form"
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-    >
-      <!-- Honeypot : champ caché anti-spam -->
-      <p class="hidden">
-        <label>Ne pas remplir : <input name="bot-field" /></label>
-      </p>
-
-
-      <div class="contact__field">
-        <label for="name">Nom</label>
-        <input type="text" id="name" name="name" required />
+    <div class="contact__postcard">
+      <div class="contact__intro">
+        <p>
+          Un projet, une question, une simple curiosité ? Ma boîte aux lettres
+          est ouverte.
+        </p>
+        <div class="contact__links">
+          <a
+            href="https://github.com/leaspadea"
+            target="_blank"
+            rel="noopener noreferrer">GitHub</a
+          >
+          <a
+            href="https://www.linkedin.com/in/lea-spadea/"
+            target="_blank"
+            rel="noopener noreferrer">LinkedIn</a
+          >
+        </div>
       </div>
 
-      <div class="contact__field">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
-      </div>
+      <div class="contact__message">
+        <span class="contact__stamp" aria-hidden="true">LS</span>
+        <form
+          class="contact__form"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          <!-- Honeypot : champ caché anti-spam -->
+          <p class="hidden">
+            <label>Ne pas remplir : <input name="bot-field" /></label>
+          </p>
 
-      <div class="contact__field">
-        <label for="message">Message</label>
-        <textarea rows="5" id="message" name="message" required></textarea>
-      </div>
+          <div class="contact__field">
+            <label for="name">Expéditeur</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              autocomplete="name"
+            />
+          </div>
 
-      <button type="submit" class="btn-primary">Envoyer</button>
-    </form>
+          <div class="contact__field">
+            <label for="email">Adresse e-mail</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="contact__field">
+            <label for="message">Votre lettre</label>
+            <textarea rows="5" id="message" name="message" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Poster la lettre</button>
+        </form>
+      </div>
+    </div>
   </div>
 </section>
 
 <style>
+  .contact__postcard {
+    --postcard-frieze-width: 10px;
+    position: relative;
+    background-color: var(--color-bg-paper);
+    color: var(--color-text-ink);
+    /* Découpe le SVG en neuf parties : quatre coins fixes et quatre bandes répétées. */
+    border: var(--postcard-frieze-width) solid transparent;
+    border-image-source: url("/images/postcard-border.svg");
+    border-image-slice: 24;
+    border-image-repeat: round;
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  /* Filet intérieur décoratif : il laisse passer les clics vers le formulaire. */
+  .contact__postcard::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 1px solid var(--color-accent-brass-dark);
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  .contact__intro {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact__intro p {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--color-text-ink);
+    line-height: 1.5;
+  }
+
+  .contact__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+    margin-top: auto;
+  }
+
+  .contact__links a {
+    font-family: var(--font-label);
+    color: var(--color-accent-brass-dark);
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .contact__stamp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 80px;
+    border: 2px dashed var(--color-accent-brass-dark);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--color-accent-brass-dark);
+    margin-left: auto;
+    margin-bottom: var(--space-6);
+  }
+
   .contact__form {
     max-width: 600px;
     display: flex;
@@ -58,23 +159,48 @@
 
   .contact__field label {
     font-size: var(--text-small);
-    font-weight: 500;
-    color: var(--color-text-secondary);
+    font-weight: 400;
+    color: var(--color-accent-brass-dark);
+    font-family: var(--font-label);
+    text-transform: uppercase;
   }
 
   .contact__field input,
   .contact__field textarea {
-    background-color: var(--color-bg-forest);
-    border: 1px solid var(--color-border-subtle);
-    border-radius: var(--radius-md);
+    background-color: transparent;
+    border-radius: 0;
     padding: var(--space-3);
-    color: var(--color-text-primary);
+    color: var(--color-text-ink);
     font-size: var(--text-body);
+  }
+
+  .contact__field input {
+    border: none;
+    border-bottom: 1px solid var(--color-accent-brass-dark);
+  }
+
+  .contact__field textarea {
+    border: 1px solid var(--color-accent-brass-dark);
+    resize: vertical;
   }
 
   .contact__field input:focus,
   .contact__field textarea:focus {
-    border-color: var(--color-accent-brass);
-    outline: none;
+    outline: 2px solid var(--color-accent-bordeaux);
+    outline-offset: 2px;
+  }
+
+  @media (min-width: 768px) {
+    .contact__postcard {
+      --postcard-frieze-width: 16px;
+      padding: 40px;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .contact__intro,
+    .contact__message {
+      flex: 1 1 300px;
+    }
   }
 </style>

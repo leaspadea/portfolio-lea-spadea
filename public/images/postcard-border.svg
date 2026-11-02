@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none">
+  <defs>
+    <!-- Une fleur et deux volutes composent chaque répétition de la frise. -->
+    <pattern id="vine" width="24" height="24" patternUnits="userSpaceOnUse">
+      <g stroke="#7A5A2E" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M0 18C5 18 5 7 10 8C14 9 11 14 8 11M24 18C19 18 19 7 14 8C10 9 13 14 16 11"/>
+        <path d="M12 19V8M12 9C7 7 8 3 9 3C11 3 12 6 12 7C12 6 13 3 15 3C16 3 17 7 12 9Z"/>
+        <path d="M12 17C6 18 4 14 5 13C8 12 10 14 12 17ZM12 17C18 18 20 14 19 13C16 12 14 14 12 17Z"/>
+        <path d="M0 22H24M0 1H24" stroke-width="0.65"/>
+        <circle cx="12" cy="21" r="0.8" fill="#7A5A2E" stroke="none"/>
+      </g>
+    </pattern>
+    <g id="corner" stroke="#7A5A2E" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M1 24V1H24M23 24V23H24" stroke-width="0.65"/>
+      <path d="M20 20C7 20 4 13 8 9C11 6 17 10 14 13C12 15 9 12 11 11M20 20C20 7 13 4 9 8"/>
+      <path d="M18 18C12 17 14 12 17 13C20 14 18 18 18 18ZM6 6C4 1 1 4 6 6ZM6 6C1 4 4 1 6 6Z"/>
+      <circle cx="6" cy="6" r="1.4" fill="#7A5A2E"/>
+    </g>
+  </defs>
+  <!-- Les quatre angles restent fixes ; seules les bandes sont répétées. -->
+  <g opacity="0.72">
+    <path d="M24 0H72V24H24Z" fill="url(#vine)"/>
+    <path d="M24 0H72V24H24Z" fill="url(#vine)" transform="translate(96 0) rotate(90)"/>
+    <path d="M24 0H72V24H24Z" fill="url(#vine)" transform="translate(96 96) rotate(180)"/>
+    <path d="M24 0H72V24H24Z" fill="url(#vine)" transform="translate(0 96) rotate(270)"/>
+    <use href="#corner"/>
+    <use href="#corner" transform="translate(96 0) rotate(90)"/>
+    <use href="#corner" transform="translate(96 96) rotate(180)"/>
+    <use href="#corner" transform="translate(0 96) rotate(270)"/>
+  </g>
+</svg>
