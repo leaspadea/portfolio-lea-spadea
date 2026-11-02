@@ -4,64 +4,51 @@ const year = new Date().getFullYear();
 
 <footer class="footer">
   <div class="container footer__inner">
-    <a href="#" class="footer__logo" aria-label="Retour en haut de page">LS</a>
-
-    <p>© {year} Léa Spadea</p>
-
-    <nav class="footer__links" aria-label="Liens externes">
-      <a
-        href="https://github.com/leaspadea"
-        target="_blank"
-        rel="noopener noreferrer">GitHub</a
+    <div class="divider footer__divider" aria-hidden="true">
+      <svg
+        width="64"
+        height="16"
+        viewBox="0 0 64 16"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.2"
       >
-      <a
-        href="https://www.linkedin.com/in/lea-spadea/"
-        target="_blank"
-        rel="noopener noreferrer">LinkedIn</a
-      >
-    </nav>
+        <circle cx="6" cy="8" r="2" />
+        <path d="M20 8 L32 2 L44 8 L32 14 Z" />
+        <circle cx="58" cy="8" r="2" />
+      </svg>
+    </div>
+
+    <p class="footer__credit">© {year} Léa Spadea · Fait main</p>
   </div>
 </footer>
 
 <style>
   .footer {
-    border-top: 1px solid var(--color-border-subtle);
     padding-block: var(--space-8);
   }
 
   .footer__inner {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
     gap: var(--space-4);
   }
 
-  .footer__inner p {
-    color: var(--color-text-muted);
-    font-size: var(--text-small);
+  .footer__divider {
+    width: 100%;
+    max-width: 32rem;
+    margin: 0;
   }
 
-  .footer__links {
-    display: flex;
-    gap: var(--space-6);
-  }
-
-  .footer__links a {
+  .footer__credit {
+    margin: 0;
     color: var(--color-text-secondary);
+    font-family: var(--font-label);
     font-size: var(--text-small);
-    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.12em;
+    text-align: center;
+    text-transform: uppercase;
   }
-
-  .footer__links a:hover {
-    color: var(--color-accent-brass);
-  }
-
-  .footer__logo {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-accent-brass);
-  text-decoration: none;
-}
 </style>
