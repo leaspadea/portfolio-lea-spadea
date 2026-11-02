@@ -9,18 +9,6 @@
           Un projet, une question, une simple curiosité ? Ma boîte aux lettres
           est ouverte.
         </p>
-        <div class="contact__links">
-          <a
-            href="https://github.com/leaspadea"
-            target="_blank"
-            rel="noopener noreferrer">GitHub</a
-          >
-          <a
-            href="https://www.linkedin.com/in/lea-spadea/"
-            target="_blank"
-            rel="noopener noreferrer">LinkedIn</a
-          >
-        </div>
       </div>
 
       <div class="contact__message">
@@ -67,6 +55,19 @@
           <button type="submit" class="btn-primary">Poster la lettre</button>
         </form>
       </div>
+
+      <div class="contact__links">
+        <a
+          href="https://github.com/leaspadea"
+          target="_blank"
+          rel="noopener noreferrer">GitHub</a
+        >
+        <a
+          href="https://www.linkedin.com/in/lea-spadea/"
+          target="_blank"
+          rel="noopener noreferrer">LinkedIn</a
+        >
+      </div>
     </div>
   </div>
 </section>
@@ -83,8 +84,12 @@
     border-image-slice: 24;
     border-image-repeat: round;
     padding: var(--space-6);
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "intro"
+      "message"
+      "links";
     gap: var(--space-8);
   }
 
@@ -99,8 +104,7 @@
   }
 
   .contact__intro {
-    display: flex;
-    flex-direction: column;
+    grid-area: intro;
   }
 
   .contact__intro p {
@@ -111,10 +115,11 @@
   }
 
   .contact__links {
+    grid-area: links;
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-6);
-    margin-top: auto;
+    align-self: end;
   }
 
   .contact__links a {
@@ -123,6 +128,13 @@
     min-height: 44px;
     display: inline-flex;
     align-items: center;
+  }
+
+  .contact__message {
+    grid-area: message;
+    min-width: 0;
+    border-top: 1px solid var(--color-accent-brass-dark);
+    padding-top: var(--space-8);
   }
 
   .contact__stamp {
@@ -167,6 +179,8 @@
 
   .contact__field input,
   .contact__field textarea {
+    min-width: 0;
+    width: 100%;
     background-color: transparent;
     border-radius: 0;
     padding: var(--space-3);
@@ -194,13 +208,25 @@
     .contact__postcard {
       --postcard-frieze-width: 16px;
       padding: 40px;
-      flex-direction: row;
-      flex-wrap: wrap;
     }
 
-    .contact__intro,
+  }
+
+  @media (min-width: 1024px) {
+    .contact__postcard {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: 1fr auto;
+      /* Le formulaire occupe les deux rangées, les liens restent en bas à gauche. */
+      grid-template-areas:
+        "intro message"
+        "links message";
+    }
+
     .contact__message {
-      flex: 1 1 300px;
+      border-top: none;
+      padding-top: 0;
+      border-left: 1px solid var(--color-accent-brass-dark);
+      padding-left: var(--space-8);
     }
   }
 </style>
