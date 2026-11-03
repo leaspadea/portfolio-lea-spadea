@@ -4,7 +4,9 @@
 
 ## 🚀 Démo / lancement
 
-Le déploiement sur **Netlify** est en préparation. En attendant la mise en ligne, suivez la section [Installation](#-installation) pour lancer le site en local.
+🌐 **[Voir le portfolio en ligne](https://leaspadea.netlify.app/)** — hébergé sur **Netlify**.
+
+Pour lancer le projet en local, suivez la section [Installation](#-installation).
 
 ## 🎯 Contexte du projet
 
@@ -22,7 +24,7 @@ Ce portfolio constitue le **projet 12** de ma formation Intégrateur Web chez Op
 - **SVG** — ornements et éléments décoratifs du cabinet
 - **Google Fonts** — Fraunces, Karla et Courier Prime
 - **npm** — gestion des dépendances et scripts du projet
-- **Netlify Forms** — formulaire préparé pour la collecte des messages après déploiement
+- **Netlify Forms** — collecte des messages du formulaire de contact
 - **Git / GitHub** — gestion des versions
 
 L'intégration React est présente dans la configuration et les dépendances, mais les sections actuelles du portfolio sont des composants Astro.
@@ -61,10 +63,11 @@ L'intégration React est présente dans la configuration et les dépendances, ma
 | Zoom à 200 % | Contenu et fonctionnalités utilisables |
 | Réduction des animations | Contenu visible sans animation d'introduction ni fondu au défilement |
 | Navigateurs | Vérifications manuelles dans Chrome et Firefox |
+| Formulaire en production | Envoi de test et présence du message dans Netlify vérifiés |
 
 Ces vérifications combinent des outils automatiques et des tests manuels ; elles ne constituent pas une certification de conformité à l'ensemble des WCAG.
 
-**À vérifier après publication :** la collecte d'un véritable message par Netlify Forms.
+Les notifications par e-mail sont configurées dans Netlify. La réception d'un e-mail de test reste à confirmer.
 
 ## 📐 Structure du projet
 
@@ -142,10 +145,10 @@ Le site est accessible sur [http://localhost:4321](http://localhost:4321) par d�
 
 - Parcourir la collection et ouvrir les liens vers les projets ou leurs dépôts.
 - Consulter la fiche À propos et les listes de compétences.
-- Utiliser le formulaire de correspondance pour me contacter une fois le site publié et Netlify Forms activé.
+- Utiliser le formulaire de correspondance du site publié pour me contacter.
 - Passer l'introduction par clic ou avec **Échap**. Elle n'est pas rejouée lors des rechargements dans la même session de navigation.
 
-Le serveur local permet de vérifier l'affichage et les champs du formulaire ; la collecte des messages nécessite le déploiement sur Netlify.
+Le serveur local permet de vérifier l'affichage et les champs du formulaire ; la collecte des messages est assurée par Netlify Forms sur le site publié.
 
 ## 🧰 Scripts disponibles
 
