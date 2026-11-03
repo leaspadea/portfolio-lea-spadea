@@ -67,7 +67,7 @@ L'intégration React est présente dans la configuration et les dépendances, ma
 
 Ces vérifications combinent des outils automatiques et des tests manuels ; elles ne constituent pas une certification de conformité à l'ensemble des WCAG.
 
-Les notifications par e-mail sont configurées dans Netlify. La réception d'un e-mail de test reste à confirmer.
+Les notifications par e-mail sont configurées dans Netlify et la réception d'un e-mail de test a été vérifiée.
 
 ## 📐 Structure du projet
 
