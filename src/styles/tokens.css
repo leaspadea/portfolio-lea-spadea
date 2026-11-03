@@ -44,8 +44,8 @@
     );
 
   /* --- Typographie --- */
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-body: 'Karla', system-ui, sans-serif;
+  --font-display: 'Fraunces Variable', Georgia, serif;
+  --font-body: 'Karla Variable', system-ui, sans-serif;
   --font-label: 'Courier Prime', 'Courier New', monospace;
 
   /* --- Échelle typographique (mobile-first) --- */

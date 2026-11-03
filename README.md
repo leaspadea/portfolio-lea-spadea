@@ -22,7 +22,7 @@ Ce portfolio constitue le **projet 12** de ma formation Intégrateur Web chez Op
 - **JavaScript / TypeScript** — interactions et script d'animation du hero
 - **GSAP 3** — orchestration des animations avec une timeline
 - **SVG** — ornements et éléments décoratifs du cabinet
-- **Google Fonts** — Fraunces, Karla et Courier Prime
+- **Fontsource** — Fraunces, Karla et Courier Prime intégrées au build et hébergées avec le site
 - **npm** — gestion des dépendances et scripts du projet
 - **Netlify Forms** — collecte des messages du formulaire de contact
 - **Git / GitHub** — gestion des versions
