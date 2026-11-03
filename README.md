@@ -63,6 +63,7 @@ L'intégration React est présente dans la configuration et les dépendances, ma
 | Zoom à 200 % | Contenu et fonctionnalités utilisables |
 | Réduction des animations | Contenu visible sans animation d'introduction ni fondu au défilement |
 | Navigateurs | Vérifications manuelles dans Chrome et Firefox |
+| Lighthouse mobile sur le site publié | Performance, accessibilité, bonnes pratiques et SEO : 100/100 lors de l'audit du 3 novembre 2026 |
 | Formulaire en production | Envoi de test et présence du message dans Netlify vérifiés |
 
 Ces vérifications combinent des outils automatiques et des tests manuels ; elles ne constituent pas une certification de conformité à l'ensemble des WCAG.
