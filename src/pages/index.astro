@@ -4,6 +4,9 @@ import Hero from "../components/Hero.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import About from "../components/About.astro";
 import Contact from "../components/Contact.astro";
+import letabli from "../assets/images/letabli.webp";
+import ninaCarducci from "../assets/images/nina-carducci.webp";
+import argentBank from "../assets/images/argent-bank.webp";
 ---
 
 <Layout
@@ -42,7 +45,7 @@ import Contact from "../components/Contact.astro";
 						number={1}
 						title="L'Établi"
 						description="Site vitrine pour un salon de tatouage, conçu et développé de l'expression du besoin au déploiement."
-						image="/images/letabli.webp"
+						image={letabli}
 						tags={["Astro", "CSS", "React"]}
 						repoUrl="https://github.com/leaspadea/L_etabli"
 					/>
@@ -52,7 +55,7 @@ import Contact from "../components/Contact.astro";
 							number={2}
 							title="Argent Bank"
 							description="Intégration front-end d'une application bancaire : authentification, gestion de profil et state management avec React et Redux."
-							image="/images/argent-bank.webp"
+							image={argentBank}
 							tags={["React", "Redux", "React Router", "Vite", "API"]}
 							repoUrl="https://github.com/leaspadea/argent-bank"
 						/>
@@ -60,7 +63,7 @@ import Contact from "../components/Contact.astro";
 							number={3}
 							title="Nina Carducci"
 							description="Optimisation SEO, performance & accessibilité d'un site de photographe"
-							image="/images/nina-carducci.webp"
+							image={ninaCarducci}
 							tags={["HTML", "CSS", "SEO", "JavaScript", "Accessibilité"]}
 							siteUrl="https://leaspadea.github.io/nina-carducci/"
 							repoUrl="https://github.com/leaspadea/nina-carducci"

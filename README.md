@@ -47,7 +47,7 @@ L'intégration React est présente dans la configuration et les dépendances, ma
 - 🎬 **Animation du hero** : coordination des portes, des effets lumineux, du portrait et du texte avec GSAP
 - ♿ **Accessibilité** : HTML sémantique, décors masqués aux lecteurs d'écran, gestion du focus et respect de `prefers-reduced-motion`
 - 📱 **Responsive** : adaptations mobile, tablette et desktop, et vérification de la lisibilité avec un zoom à 200 %
-- 🖼️ **Images** : captures de projets au format WebP, dimensions déclarées et chargement différé hors du premier écran
+- 🖼️ **Images** : variantes WebP générées avec le composant `Image` d'Astro, sélection responsive avec `srcset` et `sizes`, portrait prioritaire et captures chargées à la demande
 
 ## ✅ Vérifications effectuées
 
@@ -74,9 +74,11 @@ Les notifications par e-mail sont configurées dans Netlify et la réception d'u
 ```text
 portfolio-lea-spadea/
 ├── public/
-│   ├── images/              # Portrait, captures et ornements
+│   ├── images/              # Décors et ornements sans transformation
 │   └── favicon.svg
 ├── src/
+│   ├── assets/
+│   │   └── images/          # Portrait et captures optimisés au build
 │   ├── components/
 │   │   ├── hero/
 │   │   │   ├── Cabinet.astro

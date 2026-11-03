@@ -1,8 +1,8 @@
 ---
 // Médaillon du hero : portrait suspendu à un clou + étiquette de spécimen.
 // Animé par src/scripts/hero-intro.ts (.hero__medallion, .hero__tag-hang).
-// Sur desktop, sa taille dépend de variables posées sur .hero dans Hero.astro
-// (--hero-pad, --hero-pad-bottom, --medallion-extras).
+import { Image } from "astro:assets";
+import portrait from "../../assets/images/portrait.webp";
 ---
 
 <figure class="hero__medallion">
@@ -22,11 +22,13 @@
       <circle cx="70" cy="4" r="1.5" fill="#0B1A14"></circle>
     </svg>
     <div class="hero__portrait-frame">
-      <img
-        src="/images/portrait.webp"
+      <Image
+        src={portrait}
         alt="Portrait de Léa Spadea"
-        width="520"
-        height="660"
+        width={640}
+        widths={[240, 480, 640, 960]}
+        sizes="(min-width: 768px) 320px, 180px"
+        priority
       />
     </div>
   </div>
