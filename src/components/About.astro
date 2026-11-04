@@ -1,3 +1,7 @@
+---
+import Journey from "./Journey.astro";
+---
+
 <section id="a-propos" class="section__letter">
   <div class="container">
     <div class="bio__catalogue">
@@ -64,6 +68,8 @@
         </div>
       </div>
     </div>
+
+    <Journey />
   </div>
 
   <style>
@@ -98,8 +104,8 @@
         transparent 0 31px,
         rgba(122, 90, 46, 0.18) 31px 32px
       );
-      border: 2px solid #c9bb9b;
-      box-shadow: 6px 6px 0 #d8cbad;
+      border: 2px solid var(--color-border-paper);
+      box-shadow: 6px 6px 0 var(--color-shadow-paper);
     }
 
     .bio__hero {

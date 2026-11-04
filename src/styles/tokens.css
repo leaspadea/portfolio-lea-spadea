@@ -26,6 +26,8 @@
 
   /* --- Couleurs : Utilitaires --- */
   --color-border-subtle: #2A4038;
+  --color-border-paper: #C9BB9B;
+  --color-shadow-paper: #D8CBAD;
 
   /* --- Grain du bois commun à l'armoire et au meuble --- */
   --texture-wood-grain:
