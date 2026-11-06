@@ -7,6 +7,7 @@ import Contact from "../components/Contact.astro";
 import letabli from "../assets/images/letabli.webp";
 import ninaCarducci from "../assets/images/nina-carducci.webp";
 import argentBank from "../assets/images/argent-bank.webp";
+import { projectDetails } from "../data/project-details";
 ---
 
 <Layout
@@ -36,7 +37,7 @@ import argentBank from "../assets/images/argent-bank.webp";
 				<p class="section-eyebrow">Inventaire</p>
 				<h2 class="section-title collection__title">La <em>collection</em></h2>
 				<p class="section-subtitle collection__subtitle">
-					Une sélection de pièces réalisées pendant ma formation, chacune avec
+					Projets de formation et réalisation pour une cliente, chacun avec
 					son numéro d'inventaire.
 				</p>
 
@@ -44,7 +45,10 @@ import argentBank from "../assets/images/argent-bank.webp";
 						featured={true}
 						number={1}
 						title="L'Établi"
-						description="Site vitrine pour un salon de tatouage, conçu et développé de l'expression du besoin au déploiement."
+						category="Commande réelle"
+						status="En cours de finalisation"
+						details={projectDetails.letabli}
+						description="Site vitrine pour un salon de tatouage, conçu et développé pour une cliente."
 						image={letabli}
 						tags={["Astro", "CSS", "React"]}
 						repoUrl="https://github.com/leaspadea/L_etabli"
@@ -54,6 +58,9 @@ import argentBank from "../assets/images/argent-bank.webp";
 						<ProjectCard
 							number={2}
 							title="Argent Bank"
+							category="Projet de formation"
+							status="Réalisé"
+							details={projectDetails.argentBank}
 							description="Intégration front-end d'une application bancaire : authentification, gestion de profil et state management avec React et Redux."
 							image={argentBank}
 							tags={["React", "Redux", "React Router", "Vite", "API"]}
@@ -62,6 +69,9 @@ import argentBank from "../assets/images/argent-bank.webp";
 						<ProjectCard
 							number={3}
 							title="Nina Carducci"
+							category="Projet de formation"
+							status="Réalisé"
+							details={projectDetails.ninaCarducci}
 							description="Optimisation SEO, performance & accessibilité d'un site de photographe"
 							image={ninaCarducci}
 							tags={["HTML", "CSS", "SEO", "JavaScript", "Accessibilité"]}

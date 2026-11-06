@@ -35,7 +35,8 @@ L'intégration React est présente dans la configuration et les dépendances, ma
 - ✅ **Animation jouée une fois par session**, avec possibilité de la passer par clic ou avec la touche Échap
 - ✅ **Réduction des animations** : respect de la préférence système, avec accès direct au contenu
 - ✅ **Collection de projets** : L'Établi mis en avant, suivi d'Argent Bank et de Nina Carducci, avec technologies et liens associés
-- ✅ **Section À propos** : fiche de catalogue et compétences réparties dans quatre tiroirs décoratifs
+- ✅ **Fiches de spécimens** : fenêtres de dialogue présentant contexte, objectifs, stack, compétences développées, résultats et perspectives ; fermeture par bouton, Échap ou clic à l'extérieur et retour du focus au bouton d'ouverture
+- ✅ **Section À propos** : fiche de catalogue, compétences réparties dans quatre tiroirs décoratifs et chronologie du parcours
 - ✅ **Carte postale de correspondance** : champs obligatoires, labels associés et champ caché anti-spam
 - ✅ **Navigation responsive** : menu mobile et liens vers les sections
 - ✅ **Navigation clavier** : lien « Aller au contenu », focus visible et retours visuels sur les liens et les cartes
@@ -87,15 +88,20 @@ portfolio-lea-spadea/
 │   │   ├── Header.astro
 │   │   ├── Hero.astro
 │   │   ├── ProjectCard.astro
+│   │   ├── ProjectDetails.astro
 │   │   ├── About.astro
+│   │   ├── Journey.astro
 │   │   ├── Contact.astro
 │   │   └── Footer.astro
+│   ├── data/
+│   │   └── project-details.ts # Contenu des six rubriques de chaque projet
 │   ├── layouts/
 │   │   └── Layout.astro     # Structure HTML, métadonnées et styles globaux
 │   ├── pages/
 │   │   └── index.astro      # Assemblage de la page et données des projets
 │   ├── scripts/
-│   │   └── hero-intro.ts    # Timeline GSAP et gestion de l'introduction
+│   │   ├── hero-intro.ts    # Timeline GSAP et gestion de l'introduction
+│   │   └── project-details.ts # Ouverture, fermeture et gestion du focus des fiches
 │   └── styles/
 │       ├── tokens.css
 │       ├── reset.css
@@ -146,8 +152,8 @@ Le site est accessible sur [http://localhost:4321](http://localhost:4321) par d�
 
 ## 🧭 Utilisation
 
-- Parcourir la collection et ouvrir les liens vers les projets ou leurs dépôts.
-- Consulter la fiche À propos et les listes de compétences.
+- Parcourir la collection et utiliser « Examiner le spécimen » pour lire les six rubriques d'un projet, puis ouvrir les liens vers le site ou son dépôt.
+- Consulter la fiche À propos, les listes de compétences et le parcours chronologique.
 - Utiliser le formulaire de correspondance du site publié pour me contacter.
 - Passer l'introduction par clic ou avec **Échap**. Elle n'est pas rejouée lors des rechargements dans la même session de navigation.
 
